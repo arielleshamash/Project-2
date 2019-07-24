@@ -1,7 +1,7 @@
 DROP DATABASE IF EXISTS planitDB;
 CREATE DATABASE planitDB;
 
-USE national_holiday;
+USE planitDB;
 
 CREATE TABLE holiday(
     `id` INTEGER AUTO_INCREMENT NOT NULL,
