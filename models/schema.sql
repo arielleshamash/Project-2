@@ -10,8 +10,8 @@ CREATE TABLE holiday(
     `month_number` INTEGER NOT NULL,
     `day` INTEGER NOT NULL,
     `year` INTEGER NOT NULL,
-    PRIMARY KEY(id),
-)
+    PRIMARY KEY(id)
+);
 
 
 INSERT INTO holiday(`name`, `month_name`, `month_number`, `day`, `year`)
@@ -27,8 +27,8 @@ CREATE TABLE developers(
     `name` VARCHAR(30) NOT NULL,
     `month` VARCHAR(20) NOT NULL,
     `day` INTEGER NOT NULL,
-    PRIMARY KEY(id),
-)
+    PRIMARY KEY(id)
+);
 
 
 CREATE TABLE user_events(
@@ -36,5 +36,5 @@ CREATE TABLE user_events(
     `name` VARCHAR(60) NOT NULL,
     `month` VARCHAR(20) NOT NULL,
     `day` INTEGER NOT NULL,
-    PRIMARY KEY(id),
-)
+    PRIMARY KEY(id)
+);
