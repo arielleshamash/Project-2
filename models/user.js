@@ -4,4 +4,4 @@ module.exports = function(sequelize, DataTypes){
         password: DataTypes.STRING
     });
     return User;
-}
+};
