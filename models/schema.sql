@@ -5,10 +5,13 @@ USE planitDB;
 
 CREATE TABLE holiday(
     `id` INTEGER AUTO_INCREMENT NOT NULL,
-    `name` VARCHAR(30) NOT NULL,
+    `event` VARCHAR(30) NOT NULL,
     `month_name` VARCHAR(20) NOT NULL,
     `month_number` INTEGER NOT NULL,
     `day` INTEGER NOT NULL,
+    `time` INTEGER,
+    `finished` BOOLEAN NOT NULL DEFAULT FALSE,
+    `important` BOOLEAN NOT NULL DEFAULT FALSE ,
     `year` INTEGER NOT NULL,
     PRIMARY KEY(id)
 );
@@ -22,19 +25,10 @@ VALUES ("New Year's Day", "January",01, 01, 2019), ("Martin Luther King Day", "J
 ("Vetern's Day", "November", 11, 11, 2020), ("Thanksgiving", "November", 11, 26, 2020), ("Christmas Day", "December", 12, 25, 2020);
 
 
-CREATE TABLE developers(
+CREATE TABLE user_info(
     `id` INTEGER AUTO_INCREMENT NOT NULL,
     `name` VARCHAR(30) NOT NULL,
-    `month` VARCHAR(20) NOT NULL,
-    `day` INTEGER NOT NULL,
-    PRIMARY KEY(id)
-);
-
-
-CREATE TABLE user_events(
-    `id` INTEGER AUTO_INCREMENT NOT NULL,
-    `name` VARCHAR(60) NOT NULL,
-    `month` VARCHAR(20) NOT NULL,
-    `day` INTEGER NOT NULL,
+    `email` VARCHAR(60) NOT NULL,
+    `password` VARCHAR NOT NULL,
     PRIMARY KEY(id)
 );
