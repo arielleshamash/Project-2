@@ -1,16 +1,16 @@
-{
+module.exports = {
   "development": {
-    "username": "jb03a3djg65agfnr",
-    "password": "j7z1ykwoiewitwpk",
-    "database": "cvvjamnkiu5fjxdi",
-    "host": "ixqxr3ajmyapuwmi.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "username": process.env.MYSQL_USERNAME,
+    "password": process.env.MYSQL_KEY,
+    "database": process.env.MYSQL_DBNAME,
+    "host": process.env.MYSQL_HOST,
     "dialect": "mysql"
   },
   "test": {
-    "username": "jb03a3djg65agfnr",
-    "password": "j7z1ykwoiewitwpk",
-    "database": "cvvjamnkiu5fjxdi",
-    "host": "ixqxr3ajmyapuwmi.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "username": "root",
+    "password": "NotAnother1",
+    "database": "database_test",
+    "host": "127.0.01",
     "dialect": "mysql",
     "logging": false
   },
