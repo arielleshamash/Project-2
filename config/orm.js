@@ -1,42 +1,55 @@
-let connect = require("connection");
+// I do not know where this goes.
 
-module.exports = {
-    //get data by month
-    selectByMonth: function(month, year){
-        const monthSelection = "SELECT * FROM holiday WHERE month_name="+month+", year="+year;
-        connect.query(monthSelection, function(err, res){
-            if(err) throw err;
-        });
-    },
+const Sequelize = require('sequelize');
+const sequelize = new Sequelize('planitDB', 'root', 'Password', {
+    host: 'localhost',
+    dialect: 'mysql'
+});
+
+//get data by month
+planitDB.findAll({
+    where: {
+        month: ':month'
+    }
+})
+    .then(planitDB => {
+        res.json(planitDB);
+    }),
 
 //get data by day
-selectByDay: function(day, month, year){
-    const daySelection = "SELECT * FROM holiday WHERE day="+day+", month_name="+month+", year="+year;
-    connect.query(daySelection, function(err, res){
-        if(err) throw err;
-    });
-},
-
-//get data by exact time
-selectByTime: function(time, day, month, year){
-    const timeSelection = "SELECT * FROM holiday WHERE time="+time+", day="+day+", month_name="+month+", year="+year;
-    connect.query(timeSelection, function(err, res){
-        if(err) throw err;
-    });
-},
-
-//get important data
-selectImportant: function(){
-    const isImportant = "SELECT * FROM holiday WHERE important=true";
-    connect.query(function(err, res){
-        if (err) throw err;
-    
-    });
-},
-
-//remove event
-
-
-//add data for event
-//edit event to cross it off
-}
+ planitDB.findAll({
+    where: {
+        month: ':month',
+        day: ':day'
+     }
+})
+    .then(planitDB => {
+         res.json(planitDB);
+    }),
+                //get data by exact time
+                planitDB.findAll({
+                    where: {
+                        month: ':month',
+                        day: ':day',
+                        time: ':time'
+                    }
+                }).then(planitDB => {
+                    res.json(planitDB);
+                }),
+                    //get important data
+                    planitDB.findAll({
+                        where: {
+                            authorId: 12,
+                            status: 'active'
+                        }
+                    }),
+                    //remove event
+                    planitDB.destroy({
+                        where: {
+                            important: 'true'
+                        }
+                    }).then(planitDB =>{
+                        res.json
+                    })
+    //add data for event
+    //edit event to cross it off
