@@ -7,6 +7,7 @@ CREATE TABLE `event`(
     `id` INTEGER AUTO_INCREMENT NOT NULL,
     `moment` VARCHAR(13),
     `event` VARCHAR(30) NOT NULL,
+    `year` INTEGER NOT NULL,
     `month` INTEGER NOT NULL,
     `day` INTEGER NOT NULL,
     `finished` BOOLEAN NOT NULL DEFAULT FALSE,
