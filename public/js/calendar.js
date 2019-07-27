@@ -96,7 +96,7 @@ function calendar(target) {
 			// Define
 			var appendStr;
 			// Push
-			theFirst = parseInt(moment(month+'-01-'+year,'MM-DD-YYYY').format('e'), 10); // monday = 0;
+			theFirst = parseInt(moment(month+'-01-'+year,'MMMM Do YYYY').format('e'), 10); // monday = 0;
 			index = 1; // the days are 1-based, not 0.
 			push = index - theFirst;
 			// Days in month
