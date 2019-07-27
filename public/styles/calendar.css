@@ -1,0 +1,72 @@
+table {
+	width: 100%;
+	font-weight: bold;
+	text-align: center;
+	border-collapse: collapse;
+}
+
+table > caption {
+	padding-bottom: 0.65em;
+	text-transform: capitalize;
+}
+
+table th {
+	text-transform: capitalize;
+	width: 14.3%;
+	padding: 1.75% 0;
+	font-size: 1em;
+}
+
+table td {
+	cursor: pointer;
+	width: 14.3%;
+	padding: 2.5% 0;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+caption .month {
+	font-size: 1.2em;
+}
+
+caption .year {
+	font-size: 0.9em;
+	-ms-opacity: 0.4;
+	-moz-opacity: 0.4;
+	-webkit-opacity: 0.4;
+	opacity: 0.4;
+}
+
+caption .year:before {
+	content: " - ";
+}
+
+caption .prev, caption .next {
+	position: relative;
+	top: 0.25em;
+	font-weight: bold;
+	display: inline-block;
+	width: 3em;
+	margin: 0 auto;
+	cursor: pointer;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+caption .prev {
+	float: left;
+}
+caption .next {
+	float: right;
+}
+caption .prev:hover, caption .next:hover {
+	opacity: 0.7;
+}
+caption .prev:active, caption .next:active {
+	opacity: 1;
+	top: 0.3em;
+}

@@ -1,0 +1,30 @@
+/* General calendar styles */
+table {
+	font-size: 1em; /* All sizes are based on this font-size. */
+	color: #fff;
+}
+/* Table-head */
+table th {
+	background: #3883a3;
+}
+/* Table-columns */
+table td {
+	background: #ebebeb;
+	color: #9d9d9d; /* Semi-light grey */
+	border-bottom: 3px solid #fff;
+}
+/* Hover-state */
+table td:hover {
+	background: #fff;
+}
+/* Current day styling */
+table tbody tr .currentDay {
+	color: #3883a3;
+	background: #f4f4f4;
+}
+/* Clicked button (active button) */
+table tbody tr .active {
+	border-bottom: 3px solid #3883a3;
+	background: #fff;
+	color: #3883a3;
+}
