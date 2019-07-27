@@ -3,7 +3,7 @@ CREATE DATABASE planitDB;
 
 USE planitDB;
 
-CREATE TABLE holiday(
+CREATE TABLE `201901`(
     `id` INTEGER AUTO_INCREMENT NOT NULL,
     `event` VARCHAR(30) NOT NULL,
     `date` VARCHAR(13) NOT NULL,
@@ -11,6 +11,8 @@ CREATE TABLE holiday(
     `important` BOOLEAN NOT NULL DEFAULT FALSE ,
     PRIMARY KEY(id)
 );
+
+
 
 
 INSERT INTO holiday(`name`, `month_name`, `month_number`, `day`, `year`)
