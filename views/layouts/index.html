@@ -58,11 +58,10 @@
         <div class="row">
           <!--current month calendar-->
           <div class="col s9">
-            <div class="card large">
+            <div class="card large transparent" id="cal-card">
               <div class="card-content">
                 <!-- Show Calendar -->
 	<div class="container" id="calendar-main"></div>
-	<br>
     <!-- Show Current Date -->
     <center>
         <span class="date" id="today-date"></span>
@@ -126,10 +125,15 @@
           background-color: #1a237e;
         }
 
+        #cal-card {
+          border: none;
+        }
+
         #calendar-main {
           table-layout: fixed;
           width: 100%;
           padding: 0px;
+          border: none;
           
         }
 
