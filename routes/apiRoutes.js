@@ -1,10 +1,10 @@
-var db = require("../models");
+var db = require("../models/index.js");
 
 module.exports = function(app) {
   // Get all examples
   app.get("/api/examples", function(req, res) {
 
-    planitDB.Example.findAll({}).then(function(dbExamples) {
+    db.Example.findAll({}).then(function(dbExamples) {
       res.json(dbExamples);
     });
     

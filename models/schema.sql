@@ -6,13 +6,9 @@ USE planitDB;
 CREATE TABLE holiday(
     `id` INTEGER AUTO_INCREMENT NOT NULL,
     `event` VARCHAR(30) NOT NULL,
-    `month_name` VARCHAR(20) NOT NULL,
-    `month_number` INTEGER NOT NULL,
-    `day` INTEGER NOT NULL,
-    `time` INTEGER,
+    `date` VARCHAR(13) NOT NULL,
     `finished` BOOLEAN NOT NULL DEFAULT FALSE,
     `important` BOOLEAN NOT NULL DEFAULT FALSE ,
-    `year` INTEGER NOT NULL,
     PRIMARY KEY(id)
 );
 
