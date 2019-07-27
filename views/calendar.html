@@ -10,13 +10,13 @@
     <script>
         $(document).ready(function(){
             // Shows the calendar
-            var date = calendar('.container');
+            var date = calendar('#calendar-main');
 			// Append current date
-			$('.date').append(date.month +' - '+ date.day +' - '+ date.year);
+			$('#today-date').append(date.month +' - '+ date.day +' - '+ date.year);
 			// Change date on click
-			$('.container').on('click', function() {
-				$('.date').html('');
-				$('.date').append(date.month +' - '+ date.day +' - '+ date.year);
+			$('#calendar-main').on('click', function() {
+				$('#today-date').html('');
+				$('#today-date').append(date.month +' - '+ date.day +' - '+ date.year);
 			});
         });
     </script>
@@ -28,11 +28,11 @@
 <body>
 
     <!-- Show Calendar -->
-	<div class="container"></div>
+	<div class="container" id="calendar-main"></div>
 	<br>
     <!-- Show Current Date -->
     <center>
-        <span class="date"></span>
+        <span class="date" id="today-date"></span>
     </center>
 
 </body>
