@@ -1,11 +1,19 @@
-var db = require("../models");
+var db = require("../models/index.js");
+var moment = require('moment');
+moment().format();
 
 module.exports = function(app) {
   // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+  app.get("/", function(req, res) {
+
+    let currentDate = moment().format("MM")
+
+    db.Holiday.findAll({where:{
+      date: currentDate 
+    }}).then(function(dbExamples) {
       res.json(dbExamples);
     });
+    
   });
 
   // Create a new example
