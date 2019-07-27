@@ -1,7 +1,7 @@
 /* General calendar styles */
 table {
 	font-size: 1em; /* All sizes are based on this font-size. */
-	color: #fff;
+	color: blue;
 }
 /* Table-head */
 table th {
