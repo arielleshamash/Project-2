@@ -1,0 +1,29 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background: url("../imgs/pens5.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+   
+  }
+  main {
+    flex: 1 0 auto;
+  }
+  .page-footer {
+    background-color: #1a237e;
+  }
+  .parallax{
+    position:static;
+  }
+  .parallax-container {
+    min-height: 380px;
+    line-height: 0;
+    height: auto;
+    color: rgba(255,255,255,.9);
+  }
+  .parallax img { 
+    width: 100%; 
+
+
