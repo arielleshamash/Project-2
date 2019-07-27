@@ -4,7 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script src="https://momentjs.com/downloads/moment.min.js"></script>
+    <script src="../public/js/calendar.js"></script>
+    <script>
+        $(document).ready(function(){
+            // Shows the calendar
+            var date = calendar('.container');
+			// Append current date
+			$('.date').append(date.month +' - '+ date.day +' - '+ date.year);
+			// Change date on click
+			$('.container').on('click', function() {
+				$('.date').html('');
+				$('.date').append(date.month +' - '+ date.day +' - '+ date.year);
+			});
+        });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../public/styles/styles.css"/>
+    <link rel="stylesheet" type="text/css" href="../public/styles/calendar.css"/>
+    <link rel="stylesheet" type="text/css" href="../public/styles/calendar-style.css"/>
     <title>Calendar</title>
 </head>
 <body>
@@ -12,8 +30,10 @@
     <!-- Show Calendar -->
 	<div class="container"></div>
 	<br>
-	<!-- Show Current Date -->
-		<span class="date"></span>
+    <!-- Show Current Date -->
+    <center>
+        <span class="date"></span>
+    </center>
 
 </body>
 </html>
