@@ -21,7 +21,7 @@ module.exports = function(app) {
 
 
     db.event.findAll({where:{
-      date: currentDate 
+      month: date.month 
     }}).then(function(cMonth) {
       res.render("home", {
         month: cMonth
