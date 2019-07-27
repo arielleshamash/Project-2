@@ -1,17 +1,24 @@
 /* General calendar styles */
 table {
 	font-size: 1em; /* All sizes are based on this font-size. */
-
+	border: solid white;
+	border-width: 1px;
 }
 
 caption {
 	color: white;
 	background-color: #1a237e;
+	border: solid white;
+	border-width: 1px;
+	
 }
 
 #today-date {
 	font-weight: bold;
 	font-size: 20pt;
+	border-left: none;
+	border-right: none;
+	border-bottom: none;
 }
 
 caption .month, .year {
@@ -20,26 +27,29 @@ caption .month, .year {
 /* Table-head */
 table th {
 	background: #1a237e;
+	border: white solid 2px;
 	color: white;
+	text-align: center;
 }
 /* Table-columns */
 table td {
-	background: #ebebeb;
-	color: #9d9d9d; /* Semi-light grey */
-	border-bottom: 3px solid #fff;
+	background: white;
+	color: #1a237e;
+	border: 2px solid #1a237e;
+	
 }
 /* Hover-state */
 table td:hover {
-	background: #fff;
+	background: #bdbdbd;
 }
 /* Current day styling */
 table tbody tr .currentDay {
 	color: #1a237e;
-	background: #f4f4f4;
+	background: #e0e0e0;
 }
 /* Clicked button (active button) */
 table tbody tr .active {
-	border-bottom: 3px solid #1a237e;
-	background: #fff;
-	color: #3883a3;
+	border-bottom: 4px solid #1a237e;
+	background: #bdbdbd;
+	color: #1a237e;
 }
