@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Basic To-Do List</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+  <body>
+    <div class="container">
+        <div class="col-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">To-Do List</h5>
+                        <p class="card-text"></p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li id="e1" onclick="document.getElementById(this.id+'modal').style.display='block'" class="list-group-item">List1</li>
+                        <li id="e2" onclick="document.getElementById(this.id+'modal').style.display='block'" class="list-group-item">List2</li>
+                        <li id="e3" onclick="popModal(this.id+'modal')" class="list-group-item">List3</li>
+                        
+                    </ul>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Example textarea</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+                        <button type="button" class="btn btn-primary" onclick="newPost()">Primary</button>
+                    </div>
+                </div>
+        </div>
+    </div>
+  </body>
+  <!--Handle bars put each of the items in-->
+  <div id="e1modal" class="modal" onclick="this.style.display='none'">
+    <div class="modal-content">
+        <p>EVENT-1-Modal</p>
+    </div>
+    </div>
+
+
+    <div id="e2modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>EVENT-2-Modal</p>
+    </div>
+    </div>
+    <div id="e4modal" class="-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>EVENT-3-Modal</p>
+    </div>
+    </div>
+
+    <div class="modal fade" id="e3modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  ...
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+  <script>
+      function newPost() {
+      $.post("/api/friends", userData, function(data) {
+          
+          console.log(data.name);
+          console.log(data.imgURL);
+
+          $("#match-name").append('<h5>' + data.name + '</h5>');
+          $("#match-image").append('<img src=' + data.imgURL + '>');
+          
+          $("#myModal").modal();          
+        });
+      }
+      function popModal(modalID) {
+        $(modalID).modal(); 
+      }
+
+      var events = [
+          e1 = {
+          date: "2016-01-01T00:00:00-06:00",
+          event: "have fun",
+          important: true,
+          finished: false,
+          id: 0
+          },
+          e2 = {
+          date: "2016-01-01T00:00:00-06:00",
+          event: "Poop",
+          important: false,
+          finished: false,
+          id: 0
+          },
+          e3 = {
+          date: "2016-01-01T00:00:00-06:00",
+          event: "Die",
+          important: true,
+          finished: false,
+          id: 0
+          },
+
+      ]
+  </script>
+</html>
