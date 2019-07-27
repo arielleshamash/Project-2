@@ -1,5 +1,5 @@
 table {
-	width: 100%;
+	width: inherit;
 	font-weight: bold;
 	text-align: center;
 	border-collapse: collapse;

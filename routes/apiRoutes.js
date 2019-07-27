@@ -1,4 +1,6 @@
-var db = require("../models");
+var db = require("../models/index.js");
+var moment = require('moment');
+moment().format();
 
 module.exports = function(app) {
 
@@ -11,10 +13,23 @@ app.post("/api/")
 
 
   // Get all examples
+<<<<<<< HEAD
   app.get("/api/edit-todo", function(req, res) {
     console.log(req.body);
     var newEvent = req.body;
     planitDB
+=======
+  app.get("/", function(req, res) {
+
+    let currentDate = moment().format("MM")
+
+    db.Holiday.findAll({where:{
+      date: currentDate 
+    }}).then(function(dbExamples) {
+      res.json(dbExamples);
+    });
+    
+>>>>>>> 23a82371a3751597a24dbd245e59cd34db77474c
   });
 
   // Create a new example

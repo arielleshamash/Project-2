@@ -1,11 +1,26 @@
 /* General calendar styles */
 table {
 	font-size: 1em; /* All sizes are based on this font-size. */
-	color: #fff;
+
+}
+
+caption {
+	color: white;
+	background-color: #1a237e;
+}
+
+#today-date {
+	font-weight: bold;
+	font-size: 20pt;
+}
+
+caption .month, .year {
+	font-size: 20pt;
 }
 /* Table-head */
 table th {
-	background: #3883a3;
+	background: #1a237e;
+	color: white;
 }
 /* Table-columns */
 table td {
@@ -19,12 +34,12 @@ table td:hover {
 }
 /* Current day styling */
 table tbody tr .currentDay {
-	color: #3883a3;
+	color: #1a237e;
 	background: #f4f4f4;
 }
 /* Clicked button (active button) */
 table tbody tr .active {
-	border-bottom: 3px solid #3883a3;
+	border-bottom: 3px solid #1a237e;
 	background: #fff;
 	color: #3883a3;
 }
