@@ -3,7 +3,6 @@ var db = require("../models/index.js");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-<<<<<<< HEAD
     currentDay        =    moment().format('DD');   // Today's day.
     currentMonth    =    moment().format('MM');   // Today's month.
     currentYear        =    moment().format('YYYY'); // Today's year.
@@ -48,36 +47,9 @@ module.exports = function(app) {
       res.render("home", {
         month: nMonth
       });
-=======
-  currentDay		=	moment().format('DD');   // Today's day.
-	currentMonth	=	moment().format('MM');   // Today's month.
-	currentYear		=	moment().format('YYYY'); // Today's year.
-	// Define default.
-	var monthChange = 0;
-	var storedDay;
-	var storedMonth;
-	var storedYear;
-
-	// Define date object for ex: ajax usage.
-	var date = {
-		day: currentDay,
-		month: currentMonth,
-		year: currentYear
-	};
-
-
-    db.event.findAll({where:{
-      month: date.month 
-    }}).then(function(cMonth) {
-      res.render("home", {
-        month: cMonth
-      })
-      ;
->>>>>>> 23a82371a3751597a24dbd245e59cd34db77474c
     });
     
   });
-<<<<<<< HEAD
   app.get("/prevMonth/:year/:month", function(req, res) { 
     var year = req.params[0], month = req.params[1];
     month -= 1;
@@ -93,14 +65,6 @@ module.exports = function(app) {
     }).then(function (pMonth) {
       res.render("home", {
         month: pMonth
-=======
-
-  // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Holiday.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.render("example", {
-        example: dbExample
->>>>>>> 23a82371a3751597a24dbd245e59cd34db77474c
       });
     });
 });
