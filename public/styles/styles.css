@@ -20,12 +20,13 @@ body {
 	padding-top: 50px;
 }
 
-.container {
+#calendar-main {
 	margin: 0 auto;
-	max-width: 600px;
+	size: 100%;
 }
 
-.date {
-	color: #999;
+#today-date {
+	color: blue;
 }
+
 /* END OF CALENDAR */
