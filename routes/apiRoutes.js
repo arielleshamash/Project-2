@@ -13,28 +13,36 @@ app.post("/api/")
 
 
   // Create a new event
-// var newevent = {
-//   eventName = $("#...").val(),
-//   eventYear = $("#...").val(),
-//   eventMonth = $("#...").val(),
-//   eventDay = $("#...").val(),
-//   eventFinished = $("#...").val(),
-//   eventImportnant = $("#...").val(),
-// }
 
   app.post("/api/new-todo", function(req, res) {
     db.Event.create({
-      event: eventName,
-      year: eventYear,
-      month: eventMonth,
-      day: eventDay,
-      finished: eventFinished,
-      important: eventImportnant
+      event: req.eventName,
+      year: req.eventYear,
+      month: req.eventMonth,
+      day: req.eventDay,
+      finished: req.eventFinished,
+      important: req.eventImportnant
     })
     .then(function(dbExample) {
       res.json(dbExample);
     });
   });
+
+
+// // creating some seeds for the database
+//   app.get("/api/seed", function(req, res) {
+//     db.Event.create({
+//       event: "Burger Week",
+//       year: 2019,
+//       month: 07,
+//       day: 30,
+//       finished: false,
+//       important: false
+//     })
+//     .then(function(dbExample) {
+//       res.json(dbExample);
+//     });
+//   });
 
   // crossout an item on the todo list
   app.put("/api/update", function(req, res){

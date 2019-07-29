@@ -29,8 +29,7 @@ module.exports = function (app) {
       res.render("index", {
         month: cMonth,
         day: date.currentDay
-      })
-        ;
+      });
     });
   });
     //get data by month

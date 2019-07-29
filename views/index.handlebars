@@ -1,82 +1,110 @@
-     <header>
-      <nav>
-        <div class="nav-wrapper indigo darken-4">
-          <a href="#" class="brand-logo center">Plan It!</a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="sass.html">Calendar</a></li>
-            <li><a href="badges.html">To Do</a></li>
-            <li><a href="collapsible.html">Log Out</a></li>
-          </ul>
-        </div>
-      </nav>
-    </header>
-    <main>
-        
-      <div class="section">
-        <div class="row">
-          <!--current month calendar-->
-          <div class="col s9">
-            <div class="card large transparent" id="cal-card">
-              <div class="card-content">
-                <!-- Show Calendar -->
-	                <div class="container" id="calendar-main"></div>
-                <!-- Show Current Date -->
-                  <!-- <center>
+<header>
+  <nav>
+    <div class="nav-wrapper indigo darken-4">
+      <a href="#" class="brand-logo center">Plan It!</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="sass.html">Calendar</a></li>
+        <li><a href="badges.html">To Do</a></li>
+        <li><a href="collapsible.html">Log Out</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<main>
+
+  {{#each items}}
+  {{event}}
+
+  {{/each}}
+
+  <div class="section">
+    <div class="row">
+      <!--current month calendar-->
+      <div class="col s9">
+        <div class="card large transparent" id="cal-card">
+          <div class="card-content">
+            <!-- Show Calendar -->
+            <div class="container" id="calendar-main"></div>
+            <!-- Show Current Date -->
+            <!-- <center>
                     <span class="date" id="today-date"></span>
                   </center> -->
-              </div>
+          </div>
+        </div>
+      </div>
+
+      <!--To do list card-->
+      <div class="col s3">
+
+        <div class="container-todo">
+          <div class="header-todo">
+            <div class="clear">
+              <span id="title-todo">To-DO List APP</span>
+              <i class="fa fa-refresh" aria-hidden="true"></i>
+            </div>
+            <div class="profile">
+              <img src="/imgs/Plan-It.png">
+              <span class="notification-todo">1</span>
+            </div>
+            <div id="date"></div>
+          </div>
+          <div class="content-todo">
+            <ul id="list">
+            </ul>
+            <div class="add-item">
+              <i class="fa fa-plus-circle" id="add" aria-hidden="true"></i>
+              <input type="text" id="input" placeholder="Add a To-Do">
             </div>
           </div>
-  
-          <!--To do list card-->
-          <div class="col s3">
-                          
-            <div class="container-todo">
-            <div class="header-todo">
-                <div class="clear">
-                    <span id="title-todo">To-DO List APP</span>
-                    <i class="fa fa-refresh" aria-hidden="true"></i>
-                </div>
-                <div class="profile">
-                    <img src="/imgs/Plan-It.png">
-                    <span class="notification-todo">1</span>
-                </div>
-                <div id="date"></div>
-            </div>
-            <div class="content-todo">
-                <ul id="list">
-                </ul>
-                <div class="add-item">
-                    <i class="fa fa-plus-circle" id="add" aria-hidden="true"></i>
-                    <input type="text" id="input" placeholder="Add a To-Do">
-                </div>
-            </div>
         </div>
 
 
-            
+
+      </div>
+    </div>
+  </div>
+
+
+  <!--bottom container for monthly important dates-->
+  <div class="section">
+    <div class="row">
+      <div class="col s12">
+        <div class="card medium">
+          <div class="card-content">
+            <span class="card-title">What's Coming Up?</span>
+            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I
+              require little markup to use effectively.</p>
           </div>
         </div>
       </div>
-  
-      
-      <!--bottom container for monthly important dates-->
-      <div class="section">
-        <div class="row">
-          <div class="col s12">
-            <div class="card medium">
-              <div class="card-content">
-                <span class="card-title">What's Coming Up?</span>
-                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-    </main>
-    <footer class="page-footer center">
-      <div class="footer-copyright">
-        <div class="container">© 2019 Copyright The Clevengers</div>
-      </div>
-    </footer>
+    </div>
+  </div>
+
+</main>
+<footer class="page-footer center">
+  <div class="footer-copyright">
+    <div class="container">© 2019 Copyright The Clevengers</div>
+  </div>
+</footer>
+
+<script>
+
+  $("#add").on("click", function () {
+    var newEvent = {
+      eventName: $("#input").val(),
+      eventYear: $("#...").val(),
+      eventMonth: $("#...").val(),
+      eventDay: $("#...").val(),
+      eventFinished: $("#...").val(),
+      eventImportnant: $("#...").val(),
+    }
+  });
+
+  $.ajax({
+    method: "POST",
+    url: "/api/new-todo",
+    data: "payload"
+  }).then(function (data) {
+    console.log(data)
+  })
+</script>
