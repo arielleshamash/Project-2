@@ -1,4 +1,5 @@
 var db = require("../models/index.js");
+var moment = require('moment');
 
 module.exports = function (app) {
   // Load index page
@@ -19,13 +20,13 @@ module.exports = function (app) {
       year: currentYear
     };
 
-    db.event.findAll({
+    db.Event.findAll({
       where: {
-        year: date.currentYear,
+        year: date.year,
         month: date.month
       }
     }).then(function (cMonth) {
-      res.render("home", {
+      res.render("index", {
         month: cMonth,
         day: date.currentDay
       })
@@ -41,7 +42,7 @@ module.exports = function (app) {
         month -= 12;
         year += 1;
       }
-      db.event.findAll({
+      db.Event.findAll({
         where: {
           year: year,
           month: month
@@ -60,7 +61,7 @@ module.exports = function (app) {
         month += 12;
         year -= 1;
       }
-      db.event.findAll({
+      db.Event.findAll({
         where: {
           year: year,
           month: month
@@ -75,7 +76,7 @@ module.exports = function (app) {
     //get data by day
     app.get("/to-do/:year/:month/:day", function (req, res) {
       var year = req.params[0], month = req.params[1], day = req.params[2];
-      db.event.findAll({
+      db.Event.findAll({
         where: {
           year: year,
           month: month,
@@ -91,7 +92,7 @@ module.exports = function (app) {
     //get data by exact event
     app.get("/event/:id", function (req, res) {
       var id = req.params[0];
-      db.event.findByPK(id).then(function (listing) {
+      db.Event.findByPK(id).then(function (listing) {
         res.render("home", {
           listItem: listing
         })
@@ -100,7 +101,7 @@ module.exports = function (app) {
 
     //get important data
     app.get("/important-list/:month", function (req, res) {
-      db.event.findAll({
+      db.Event.findAll({
         where: {
           important: true
         }

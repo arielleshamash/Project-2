@@ -13,14 +13,14 @@ app.post("/api/")
 
 
   // Create a new event
-var newevent = {
-  eventName = $("#...").val(),
-  eventYear = $("#...").val(),
-  eventMonth = $("#...").val(),
-  eventDay = $("#...").val(),
-  eventFinished = $("#...").val(),
-  eventImportnant = $("#...").val(),
-}
+// var newevent = {
+//   eventName = $("#...").val(),
+//   eventYear = $("#...").val(),
+//   eventMonth = $("#...").val(),
+//   eventDay = $("#...").val(),
+//   eventFinished = $("#...").val(),
+//   eventImportnant = $("#...").val(),
+// }
 
   app.post("/api/new-todo", function(req, res) {
     db.Event.create({
