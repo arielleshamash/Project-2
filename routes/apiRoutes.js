@@ -28,21 +28,11 @@ app.post("/api/")
     });
   });
 
-
-// // creating some seeds for the database
-//   app.get("/api/seed", function(req, res) {
-//     db.Event.create({
-//       event: "Burger Week",
-//       year: 2019,
-//       month: 07,
-//       day: 30,
-//       finished: false,
-//       important: false
-//     })
-//     .then(function(dbExample) {
-//       res.json(dbExample);
-//     });
-//   });
+  app.get("api/todo", function(req, res){
+    db.Event.selectAll({where:{
+      day: 30
+    }})
+  })
 
   // crossout an item on the todo list
   app.put("/api/update", function(req, res){
