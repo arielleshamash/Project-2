@@ -1,0 +1,260 @@
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+	background: url("/imgs/pens5.jpg");
+	background-attachment: fixed;
+	background-size: cover;
+	background-repeat: no-repeat;
+	
+
+  }
+  main {
+	flex: 1 0 auto;
+  }
+  .page-footer {
+	background-color: #1a237e;
+  }
+
+  
+  .card.large .card-content {
+	  overflow: visible;
+  }
+
+
+
+  #cal-card {
+	border: none;
+	box-shadow: none;
+  }
+
+  #calendar-main {
+	table-layout: fixed;
+	width: 100%;
+	padding: 0px;
+	
+  }
+
+.list-group-item {
+  line-height: 2.5;
+}
+
+/* CALENDAR STYLING */
+* {
+	padding: 0;
+	margin: 0;
+	-webkit-font-smoothing: antialiased;
+	font-family: sans-serif;
+}
+
+
+*, *:before, *:after {
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+
+
+#calendar-main {
+	margin: 0 auto;
+	size: 100%;
+}
+
+#today-date {
+	color: blue;
+}
+
+/* END OF CALENDAR */
+
+
+
+/* TO DO LIST */
+
+/* 
+
+/* body{
+    background-image: url(https://images.unsplash.com/photo-1484950763426-56b5bf172dbb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1080&q=100);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+} */
+
+
+.container-todo{
+    
+    width: 325px;
+    padding: 2px;
+    background: #eee;
+    border-radius: 10px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: 0 25px 50px -12px rgba(255, 0, 0, 0.2);
+}
+
+.profile{
+    width: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#title-todo{
+    text-align: center;
+    font-size: 18px;
+    width: 100%;
+    top: 12%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    font-weight: 500;
+}
+
+.notification-todo{
+    background: #3CB46E;
+    width: 25px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+    z-index: 99999;
+}
+
+.profile img{
+    width: 100%;
+    border-radius: 100px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+    position: relative;
+}
+
+.header-todo{
+    background-image: linear-gradient(rgb(0,0,0,0.01),rgb(0,0,0,0.4)),url(https://images.unsplash.com/photo-1509114397022-ed747cca3f65?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=100&h=500);
+    height: 250px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    padding: 20px;
+    border-bottom: 2px solid #ccc;
+    position: relative;
+}
+
+.clear{
+    box-sizing: border-box;
+    padding: 0 10px;
+    font-size: 24px;
+    color: #fff;
+    height: 180px;
+    width: 100%;
+    text-align: right;
+}
+
+#date{
+    
+    font-size: 21px;
+    color: #fff;
+    text-align: center;
+    width: 100%; 
+    font-weight: bold;
+}
+
+.content-todo{
+    background: #fff;
+    min-height: 340px;
+    height: 100%;
+}
+
+#list{
+    list-style-type: none;
+    min-height: 260px;
+    height: 90%;
+    border-bottom: 2px solid blue;
+}
+
+.item{
+    width: 100%;
+    padding: 8px;
+    background: #eee;
+    box-sizing: border-box;
+}
+
+.fa{
+    cursor: pointer;
+    transition: .1s linear;
+}
+
+.fa:hover{
+   transform: scale(1.2);
+}
+
+.item .fa, .item p{
+    display: inline-block;
+    font-size: 21px;
+}
+
+.item p{
+    font-size: 16px;
+    margin: 0 auto;
+    margin: 0 0 0 20px
+}
+
+.de{
+    float: right;
+}
+
+.co{
+    float: left;
+}
+
+.add-item{
+    min-height: 40px;
+    height: 100%;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    padding: 8px;
+    color:blue;
+    background:#eee;
+
+}
+
+.add-item .fa{
+    display: inline-block;
+    font-size: 34px;
+    margin-right: 10px;
+    margin-top: 4px;
+}
+
+input[type=text] {
+    width: 87%;
+    box-sizing: border-box;
+    display: inline;
+    float: right;
+    border: none;
+    height: 40px;
+    font-size: 18px;
+    background:#eee;
+    padding: 10px;
+}
+
+input[type=text]::placeholder{
+    color: blue;
+}
+
+.fa-check-circle{
+    color:green;
+}
+
+.lineThrough{
+    text-decoration: line-through;
+    color: #ccc;
+}
+
+
+input#input {
+    width: 85%;
+}
