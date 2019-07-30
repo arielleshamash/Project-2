@@ -3,14 +3,14 @@
     "username": "root",
     "password": "Password",
     "database": "planitDB",
-    "host": "localhost",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "NotAnother1",
-    "database": "database_test",
-    "host": "127.0.01",
+    "password": "Password",
+    "database": "planitDB",
+    "host": "127.0.0.1",
     "dialect": "mysql",
     "logging": false
   },
