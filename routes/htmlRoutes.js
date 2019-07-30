@@ -20,7 +20,7 @@ module.exports = function (app) {
       year: currentYear
     };
 
-    db.event.findAll({
+    db.Event.findAll({
       where: {
         year: date.year,
         month: date.month
@@ -41,7 +41,7 @@ module.exports = function (app) {
         month -= 12;
         year += 1;
       }
-      db.event.findAll({
+      db.Event.findAll({
         where: {
           year: year,
           month: month
@@ -60,7 +60,7 @@ module.exports = function (app) {
         month += 12;
         year -= 1;
       }
-      db.event.findAll({
+      db.Event.findAll({
         where: {
           year: year,
           month: month
@@ -75,7 +75,7 @@ module.exports = function (app) {
     //get data by day
     app.get("/to-do/:year/:month/:day", function (req, res) {
       var year = req.params[0], month = req.params[1], day = req.params[2];
-      db.event.findAll({
+      db.Event.findAll({
         where: {
           year: year,
           month: month,
@@ -88,8 +88,8 @@ module.exports = function (app) {
       });
     });
 
-    //get data by exact event
-    app.get("/event/:id", function (req, res) {
+    //get data by exact Event
+    app.get("/Event/:id", function (req, res) {
       var id = req.params[0];
       db.Event.findByPK(id).then(function (listing) {
         res.render("home", {
