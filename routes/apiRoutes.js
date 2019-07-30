@@ -6,29 +6,50 @@ module.exports = function(app) {
 
 //remove event
 app.post("/api/")
-//add data for event
-//edit event to cross it off 
+
+// add event, cross off, delete
+
+// create fake post to know what is coming
 
 
+  // Create a new event
 
-
-  // Get all examples
-  app.get("/api/edit-todo", function(req, res) {
-    console.log(req.body);
-    var newEvent = req.body;
-    planitDB
-  });
-
-  // Create a new example
   app.post("/api/new-todo", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
+    db.Event.create({
+      event: req.eventName,
+      year: req.eventYear,
+      month: req.eventMonth,
+      day: req.eventDay,
+      finished: req.eventFinished,
+      important: req.eventImportnant
+    })
+    .then(function(dbExample) {
       res.json(dbExample);
     });
   });
 
-  // Delete an example by id
-  app.delete("/api/rem-todo/:id", function(req, res) {
-    db.event.destroy({ where: { id: req.params.id } }).then(function(db) {
+  app.get("api/todo", function(req, res){
+    db.Event.selectAll({where:{
+      day: 30
+    }})
+  })
+
+  // crossout an item on the todo list
+  app.put("/api/update", function(req, res){
+    db.Event.update(req.body.important,
+      {
+        where:{
+          event: req.body.event
+        }
+      }).then(function(dbPost){
+        res.json(dbPost);
+      });
+  });
+
+  // Delete an event
+  app.delete("/api/delete-event", function(req, res) {
+    const id = req.params.id
+    db.Event.destroy({ where: { id: id } }).then(function(db) {
       res.json(db);
     });
   });
