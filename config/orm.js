@@ -3,7 +3,10 @@
 const Sequelize = require('sequelize');
  module.exports = new Sequelize('planitDB', 'root', 'Password', {
     host: 'localhost',
-    dialect: 'mysql'
+    dialect: 'mysql',
+    define: {
+        timestamps: false
+    }
 });
 
 //get data by month
