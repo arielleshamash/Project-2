@@ -75,7 +75,7 @@ module.exports = function (app) {
     //get data by day
     app.get("/to-do/:year/:month/:day", function (req, res) {
       var year = req.params[0], month = req.params[1], day = req.params[2];
-      db.Event.findAll({
+      db.event.findAll({
         where: {
           year: year,
           month: month,
