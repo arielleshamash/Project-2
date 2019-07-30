@@ -1,18 +1,7 @@
-var db = require("../models/index.js");
-var moment = require('moment');
-moment().format();
+const express = require('express');
+const router = express.Router();
 
 // creating some seeds for the database
-app.get("/api/seed", function(req, res) {
-    db.Event.create({
-      event: "Burger Week",
-      year: 2019,
-      month: 07,
-      day: 30,
-      finished: false,
-      important: false
-    })
-    .then(function(dbExample) {
-      res.json(dbExample);
-    });
-  });
+router.get('/', (req, res)=>res.send("it's kinda working"));
+
+module.exports = router;
