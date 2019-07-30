@@ -20,7 +20,7 @@ module.exports = function (app) {
       year: currentYear
     };
 
-    db.Event.findAll({
+    db.event.findAll({
       where: {
         year: date.year,
         month: date.month
@@ -41,7 +41,7 @@ module.exports = function (app) {
         month -= 12;
         year += 1;
       }
-      db.Event.findAll({
+      db.event.findAll({
         where: {
           year: year,
           month: month
@@ -60,7 +60,7 @@ module.exports = function (app) {
         month += 12;
         year -= 1;
       }
-      db.Event.findAll({
+      db.event.findAll({
         where: {
           year: year,
           month: month
