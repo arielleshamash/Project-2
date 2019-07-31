@@ -25,6 +25,7 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Routes
+app.use('/api/events', require('./routes/events'))
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 

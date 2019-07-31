@@ -15,7 +15,7 @@ app.post("/api/")
   // Create a new event
 
   app.post("/api/new-todo", function(req, res) {
-    db.Event.create({
+    db.event.create({
       event: req.eventName,
       year: req.eventYear,
       month: req.eventMonth,
@@ -29,14 +29,14 @@ app.post("/api/")
   });
 
   app.get("api/todo", function(req, res){
-    db.Event.selectAll({where:{
+    db.event.selectAll({where:{
       day: 30
     }})
   })
 
   // crossout an item on the todo list
   app.put("/api/update", function(req, res){
-    db.Event.update(req.body.important,
+    db.event.update(req.body.important,
       {
         where:{
           event: req.body.event
@@ -49,7 +49,7 @@ app.post("/api/")
   // Delete an event
   app.delete("/api/delete-event", function(req, res) {
     const id = req.params.id
-    db.Event.destroy({ where: { id: id } }).then(function(db) {
+    db.event.destroy({ where: { id: id } }).then(function(db) {
       res.json(db);
     });
   });

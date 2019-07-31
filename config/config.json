@@ -1,8 +1,11 @@
-  
-  {
+{
   "development": {
     "username": "root",
+<<<<<<< HEAD
     "password": "Munchkin93",
+=======
+    "password": "NotAnother1",
+>>>>>>> g-xander
     "database": "planitDB",
     "host": "127.0.0.1",
     "dialect": "mysql"
@@ -10,7 +13,11 @@
   "test": {
     "username": "root",
     "password": "NotAnother1",
+<<<<<<< HEAD
     "database": "database_test",
+=======
+    "database": "planitDB",
+>>>>>>> g-xander
     "host": "127.0.0.1",
     "dialect": "mysql",
     "logging": false
@@ -19,5 +26,5 @@
     "use_env_variable": "JAWSDB_URL",
     "dialect": "mysql"
   }
-  }
+}
 
