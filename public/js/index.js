@@ -51,4 +51,11 @@ $(document).ready(function(){
         });
     })
 
+
+
+    // ---------------------------- for completed todos --------------------------------
+
+    $(".complete").on("click", function(){
+        $(this).attr("data-id");
+    })
 })
