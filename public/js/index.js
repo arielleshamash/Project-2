@@ -27,24 +27,28 @@ $(document).ready(function(){
     });
 
 // delete function
-    // $(`"#delete${id}"`).on("click", function(){
-    //     var dateString= $("#date").html()
-    //     var dateValues = dateString.split(" - ")
 
-    //     var deleteEvent = {
-    //         eventName: $('#itemText').html(),
-    //         eventMonth: dateValues[0],
-    //         eventDay: dateValues[1],
-    //         eventYear: dateValues[2]
-    //     }
+    $(".delete").on("click", function(){
+        $(this).attr("data-id");
+        var dateString= $("#date").html()
+        var dateValues = dateString.split(" - ")
 
-    //     $.ajax({
-    //         method: "POST",
-    //         url: "/api/delete-event",
-    //         data: deleteEvent
-    //     }).then(function (data) {
-    //         console.log("deleting "+data)
-    //     });
-    // })
+        var deleteEvent = {
+            eventName: $('#itemText').html(),
+            eventMonth: dateValues[0],
+            eventDay: dateValues[1],
+            eventYear: dateValues[2]
+        }
+
+        console.log(deleteEvent);
+
+        $.ajax({
+            method: "POST",
+            url: "/api/delete-event",
+            data: deleteEvent
+        }).then(function (data) {
+            console.log("deleting "+data)
+        });
+    })
 
 })

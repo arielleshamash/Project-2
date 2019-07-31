@@ -21,13 +21,17 @@ module.exports = function (app) {
   });
 
   // still needs work!!!!!
-  // app.get("api/todo", function (req, res) {
-  //   db.Event.selectAll({
-  //     where: {
-  //       day: 30
-  //     }
-  //   })
-  // })
+  app.get("api/todo-items", function (req, res) {
+    db.Event.selectAll({
+      where: {
+        year: req.body.eventYear,
+        day: req.body.eventDay,
+        month: req.body.eventMonth
+      }
+    }).then(function(dbRes){
+      res.json(dbRes);
+    })
+  })
 
   // crossout an item on the todo list
   // app.put("/api/update", function (req, res) {
@@ -42,7 +46,8 @@ module.exports = function (app) {
   // });
 
   // ---------------------------Delete an event-------------------------------------
-  app.delete("/api/delete-event", function (req, res) {
+  app.post("/api/delete-event", function (req, res) {
+    console.log(req.body)
     db.Event.destroy(
       {
         where: {
@@ -56,6 +61,8 @@ module.exports = function (app) {
       });
   });
 
+
+  // ---------------------------- Jon's code -------------------------------
 // Load index page
 
 //current month info
