@@ -80,24 +80,3 @@
   </div>
 </footer>
 
-<script>
-
-  $("#add").on("click", function () {
-    var newEvent = {
-      eventName: $("#input").val(),
-      eventYear: $("#...").val(),
-      eventMonth: $("#...").val(),
-      eventDay: $("#...").val(),
-      eventFinished: $("#...").val(),
-      eventImportnant: $("#...").val(),
-    }
-  });
-
-  $.ajax({
-    method: "POST",
-    url: "/api/new-todo",
-    data: "payload"
-  }).then(function (data) {
-    console.log(data)
-  })
-</script>
