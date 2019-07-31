@@ -2,7 +2,7 @@ body {
 	display: flex;
 	min-height: 100vh;
 	flex-direction: column;
-	background: url("/imgs/pens5.jpg");
+	background: url(../imgs/art-background-blue-370799.jpg);
 	background-attachment: fixed;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -131,10 +131,10 @@ body {
 }
 
 .header-todo{
-    background-image: linear-gradient(rgb(0,0,0,0.01),rgb(0,0,0,0.4)),url(https://images.unsplash.com/photo-1509114397022-ed747cca3f65?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=100&h=500);
+    background-image: linear-gradient(rgb(0,0,0,0.01),rgb(0,0,0,0.4)),url(../imgs/Plan-It.png);
     height: 250px;
     background-position: center;
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     border-radius: 10px;
     border-bottom-left-radius: 0;
