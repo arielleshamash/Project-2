@@ -1,7 +1,7 @@
 // I do not know where this goes.
 
 const Sequelize = require('sequelize');
- module.exports = new Sequelize('planitDB', 'root', 'Password', {
+ module.exports = new Sequelize('planitDB', 'root', 'password', {
     host: 'localhost',
     dialect: 'mysql',
     define: {
@@ -60,7 +60,7 @@ db.holiday.findAll({
             })
 
     //add data for event
-   holiday.create({
+   event.create({
         event: '?',
         month_name: '?',
         month_number: '?',
