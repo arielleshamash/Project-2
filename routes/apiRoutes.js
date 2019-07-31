@@ -6,14 +6,14 @@ module.exports = function (app) {
   //remove event
   app.post("/api/")
 
-  // Create a new event
-
+  // -------------------------------Create a new event------------------------------
   app.post("/api/new-todo", function (req, res) {
+    console.log(req.body);
     db.Event.create({
-      event: req.eventName,
-      year: req.eventYear,
-      month: req.eventMonth,
-      day: req.eventDay
+      event: req.body.eventName,
+      year: req.body.eventYear,
+      month: req.body.eventMonth,
+      day: req.body.eventDay
     })
       .then(function (dbExample) {
         res.json(dbExample);
@@ -41,21 +41,21 @@ module.exports = function (app) {
   //     });
   // });
 
-  // Delete an event
+  // ---------------------------Delete an event-------------------------------------
   app.delete("/api/delete-event", function (req, res) {
     db.Event.destroy(
       {
         where: {
-          event: req.eventName,
-          year: req.eventYear,
-          month: req.eventMonth,
-          day: req.eventDay
+          event: req.body.eventName,
+          year: req.body.eventYear,
+          month: req.body.eventMonth,
+          day: req.body.eventDay
         }
       }).then(function (db) {
         res.json(db);
       });
   });
-};
+
 // Load index page
 
 //current month info
@@ -99,3 +99,4 @@ app.get("/important-list/:month", function (req, res) {
   });
 });
   
+}

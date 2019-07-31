@@ -35,9 +35,9 @@ function addTODO(toDo, id, done, trash) {
     const item =
         `
                     <li class="item">
-                        <i class="fa ${DONE} co" job="complete" id="${id}"></i>
+                        <i class="fa ${DONE} co" job="complete" id="complete${id}"></i>
                         <p id="itemText" class="text ${LINE}">${toDo}</p>
-                        <i id="delete" class="fa fa-trash-o de" job="delete"></i>
+                        <i id="delete${id}" class="fa fa-trash-o de" job="delete"></i>
                     </li>
             `;
 

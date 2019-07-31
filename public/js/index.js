@@ -15,36 +15,36 @@ $(document).ready(function(){
             // eventFinished: $("#...").val(),
             // eventImportnant: $("#...").val()
         }
-        // console.log("this is "+ newEvent.eventMonth);
+        console.log("this is "+ JSON.stringify(newEvent));
         $.ajax({
             method: "POST",
             url: "/api/new-todo",
             data: newEvent
         }).then(function (data) {
-            console.log(data)
+            // console.log(data)
         });
         
     });
 
 // delete function
-    $("#delete").on("click", function(){
-        var dateString= $("#date").html()
-        var dateValues = dateString.split(" - ")
+    // $(`"#delete${id}"`).on("click", function(){
+    //     var dateString= $("#date").html()
+    //     var dateValues = dateString.split(" - ")
 
-        var deleteEvent = {
-            eventName: $('#itemText').html(),
-            eventMonth: dateValues[0],
-            eventDay: dateValues[1],
-            eventYear: dateValues[2]
-        }
+    //     var deleteEvent = {
+    //         eventName: $('#itemText').html(),
+    //         eventMonth: dateValues[0],
+    //         eventDay: dateValues[1],
+    //         eventYear: dateValues[2]
+    //     }
 
-        $.ajax({
-            method: "POST",
-            url: "/api/delete-event",
-            data: deleteEvent
-        }).then(function (data) {
-            console.log("deleting "+data)
-        });
-    })
+    //     $.ajax({
+    //         method: "POST",
+    //         url: "/api/delete-event",
+    //         data: deleteEvent
+    //     }).then(function (data) {
+    //         console.log("deleting "+data)
+    //     });
+    // })
 
 })
