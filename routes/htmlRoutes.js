@@ -3,17 +3,10 @@ var moment = require('moment');
 
 module.exports = function (app) {
   // Load index page
-<<<<<<< HEAD
-  app.get("/", function(req, res) {
-    currentDay        =    moment().format('DD');   // Today's day.
-    currentMonth    =    moment().format('MM');   // Today's month.
-    currentYear        =    moment().format('YYYY'); // Today's year.
-=======
   app.get("/", function (req, res) {
     currentDay = moment().format('DD');   // Today's day.
     currentMonth = moment().format('MM');   // Today's month.
     currentYear = moment().format('YYYY'); // Today's year.
->>>>>>> 3f340607fbc323a65dfd9e671d33bf2780fa3c72
     // Define default.
     var monthChange = 0;
     var storedDay;
@@ -58,26 +51,6 @@ module.exports = function (app) {
           month: nMonth
         });
       });
-<<<<<<< HEAD
-    });
-    
-  });
-  app.get("/prevMonth/:year/:month", function(req, res) { 
-    var year = req.params[0], month = req.params[1];
-    month -= 1;
-    if (month === 0) {
-      month += 12;
-      year -= 1;
-    }
-    db.event.findAll({ 
-      where: {
-      year: year, 
-      month: month
-      }
-    }).then(function (pMonth) {
-      res.render("home", {
-        month: pMonth
-=======
 
     });
     app.get("/prevMonth/:year/:month", function (req, res) {
@@ -96,7 +69,6 @@ module.exports = function (app) {
         res.render("home", {
           month: pMonth
         });
->>>>>>> 3f340607fbc323a65dfd9e671d33bf2780fa3c72
       });
     });
 
@@ -116,8 +88,8 @@ module.exports = function (app) {
       });
     });
 
-    //get data by exact event
-    app.get("/event/:id", function (req, res) {
+    //get data by exact Event
+    app.get("/Event/:id", function (req, res) {
       var id = req.params[0];
       db.Event.findByPK(id).then(function (listing) {
         res.render("home", {
