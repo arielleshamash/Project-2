@@ -1,56 +1,47 @@
 var db = require("../models/index.js");
 var moment = require('moment');
-moment().format();
 
-module.exports = function(app) {
+module.exports = function (app) {
+  // Load index page
 
-//remove event
-app.post("/api/")
-
-// add event, cross off, delete
-
-// create fake post to know what is coming
-
-
-  // Create a new event
-
-  app.post("/api/new-todo", function(req, res) {
-    db.Event.create({
-      event: req.eventName,
-      year: req.eventYear,
-      month: req.eventMonth,
-      day: req.eventDay,
-      finished: req.eventFinished,
-      important: req.eventImportnant
-    })
-    .then(function(dbExample) {
-      res.json(dbExample);
-    });
-  });
-
-  app.get("api/todo", function(req, res){
-    db.Event.selectAll({where:{
-      day: 30
-    }})
-  })
-
-  // crossout an item on the todo list
-  app.put("/api/update", function(req, res){
-    db.Event.update(req.body.important,
-      {
-        where:{
-          event: req.body.event
-        }
-      }).then(function(dbPost){
-        res.json(dbPost);
+  //current month info
+  app.get("/api/events/:year/:month", function(req, res) {
+  
+    db.Event.findAll({
+       where: {
+         year: req.params.year,
+         month: req.params.month
+      }
+    }).then(cMonth => {
+      // console.log("HELPPPP");
+      // for (var i = 0; i < cMonth.length; i++) {
+      //   console.log(cMonth[i].event);
+      // }
+      res.json(cMonth);
       });
   });
 
-  // Delete an event
-  app.delete("/api/delete-event", function(req, res) {
-    const id = req.params.id
-    db.Event.destroy({ where: { id: id } }).then(function(db) {
-      res.json(db);
+    //get data by exact event
+    app.get("/event/:id", function (req, res) {
+      var id = req.params[0];
+      db.Event.findByPK(id).then(function (listing) {
+        res.render("home", {
+          listItem: listing
+        })
+      })
     });
-  });
-};
+
+
+    //get important data
+    app.get("/important-list/:month", function (req, res) {
+      db.Event.findAll({
+        where: {
+          important: true
+        }
+      }).then(function (veryImportant) {
+        res.render("home", {
+          importantList: veryImportant
+        });
+      });
+    });
+  };

@@ -1,4 +1,5 @@
 function calendar(target) {
+
 	// Defaults and variables
 	currentDay		=	moment().format('DD');   // Today's day.
 	currentMonth	=	moment().format('MM');   // Today's month.
@@ -46,7 +47,28 @@ function calendar(target) {
 	}
 
 	// Will execute on init & prev + next buttons.
-	function dynamicContent(change, activeDay) {
+	function dynamicContent(change, monthEvents, activeDay) {
+
+		//put days in order
+		orderedMonthEvents = [];
+		for (var j = 0; j < monthEvents.length; j++) {
+			//put in the right day
+			console.log(monthEvents[j].event);
+			if (orderedMonthEvents[monthEvents[j].day] === undefined) {
+				if (monthEvents[j].event === undefined) {
+					orderedMonthEvents[monthEvents[j].day] = "";
+				} else {
+				orderedMonthEvents[monthEvents[j].day] = monthEvents[j].event;
+				}
+			} else {
+				if (monthEvents[j].event === undefined) {
+					orderedMonthEvents[monthEvents[j].day] = "";
+				} else {
+				orderedMonthEvents[monthEvents[j].day] += ('/n'+ monthEvents[j.event]);
+				}
+			}
+		}
+
 		// Define variables and set default.
 		change = change || 0;
 		activeDay = activeDay || null;
@@ -92,7 +114,7 @@ function calendar(target) {
 			$(target +' table caption .year').text(year);
 		}
 
-		function appendDays(month, year, push) {
+		function appendDays(monthInfo, month, year, push) {
 			// Define
 			var appendStr;
 			// Push
@@ -106,12 +128,12 @@ function calendar(target) {
 			for (i = push; i <= daysInMonth; i++) {
 				x++;
 				if (x === 1) {
-					appendStr += '<tr><td>'+i+'</td>';
+					appendStr += '<tr><td id='+ i + '>'+ i + monthInfo[i] +'</td>';
 				} else if(x === 7) {
-					appendStr += '<td>'+i+'</td></tr>';
+					appendStr += '<td id='+ i + '>'+ i + monthInfo[i] + '</td></tr>';
 					x = 0;
 				} else {
-					appendStr += '<td>'+i+'</td>';
+					appendStr += '<td id='+ i + '>'+ i + monthInfo[i] +'</td>';
 				}
 			}
 			// Finish the week with blank days.
@@ -158,7 +180,7 @@ function calendar(target) {
 		if (activeDay === null) {
 			// Execute functions.
 			appendHeadline( calendarMonth, calendarYear );
-			appendDays( calendarMonth, calendarYear );
+			appendDays(orderedMonthEvents, calendarMonth, calendarYear );
 			styleDays();
 		}
 		// If activeDay != null (a <td> have been clicked).
@@ -189,7 +211,14 @@ function calendar(target) {
 	// Init static content (ex: lang & table-head).
 	staticContent();
 	// Init the calender && get returned data from function
-	dynamicContent();
+	//data holder for month events
+
+	console.log(currentMonth + "  GRRRRRRRRRRRRRRRRRRRRRO " + currentYear);
+
+	$.get('/api/events/'+ currentYear +'/'+ currentMonth, function(monthEvents) {
+		
+		dynamicContent(0, monthEvents);
+	});
 
 	// Prev / Next buttons
 	$(target +' .prev').click(function() {

@@ -50,7 +50,7 @@
               {{!-- to do list add event --}}
               <i class="fa fa-plus-circle" id="add" aria-hidden="true"></i>
               <input type="text" id="input" placeholder="Add a To-Do">
-            </div>
+                          </div>
           </div>
         </div>
       </div>
@@ -80,24 +80,3 @@
   </div>
 </footer>
 
-<script>
-
-  $("#add").on("click", function () {
-    var newEvent = {
-      eventName: $("#input").val(),
-      eventYear: $("#...").val(),
-      eventMonth: $("#...").val(),
-      eventDay: $("#...").val(),
-      eventFinished: $("#...").val(),
-      eventImportnant: $("#...").val(),
-    }
-  });
-
-  $.ajax({
-    method: "POST",
-    url: "/api/new-todo",
-    data: "payload"
-  }).then(function (data) {
-    console.log(data)
-  })
-</script>
