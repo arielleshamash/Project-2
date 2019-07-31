@@ -1,14 +1,27 @@
 var db = require("../models/index.js");
 var moment = require('moment');
-moment().format();
 
-module.exports = function(app) {
+module.exports = function (app) {
+  // Load index page
 
-//remove event
-app.post("/api/")
+  //current month info
+  app.get("/api/events/:year/:month", function(req, res) {
+  
+    db.Event.findAll({
+       where: {
+         year: req.params.year,
+         month: req.params.month
+      }
+    }).then(cMonth => {
+      // console.log("HELPPPP");
+      // for (var i = 0; i < cMonth.length; i++) {
+      //   console.log(cMonth[i].event);
+      // }
+      res.json(cMonth);
+      });
+  });
 
-  // Create a new event
-
+<<<<<<< HEAD
   app.post("/api/new-todo", function(req, res) {
     db.event.create({
       event: req.eventName,
@@ -20,9 +33,19 @@ app.post("/api/")
     })
     .then(function(dbExample) {
       res.json(dbExample);
+=======
+    //get data by exact event
+    app.get("/event/:id", function (req, res) {
+      var id = req.params[0];
+      db.Event.findByPK(id).then(function (listing) {
+        res.render("home", {
+          listItem: listing
+        })
+      })
+>>>>>>> 6b753fd6ca1c4f2e5ec6db2f2f3a2ed5a5ef7e12
     });
-  });
 
+<<<<<<< HEAD
   // still needs work!!!!!
   app.get("api/todo", function(req, res){
     db.event.selectAll({where:{
@@ -36,10 +59,21 @@ app.post("/api/")
       {
         where:{
           event: req.body.event
+=======
+
+    //get important data
+    app.get("/important-list/:month", function (req, res) {
+      db.Event.findAll({
+        where: {
+          important: true
+>>>>>>> 6b753fd6ca1c4f2e5ec6db2f2f3a2ed5a5ef7e12
         }
-      }).then(function(dbPost){
-        res.json(dbPost);
+      }).then(function (veryImportant) {
+        res.render("home", {
+          importantList: veryImportant
+        });
       });
+<<<<<<< HEAD
   });
 
   // Delete an event
@@ -47,6 +81,7 @@ app.post("/api/")
     const id = req.params.id
     db.event.destroy({ where: { id: id } }).then(function(db) {
       res.json(db);
+=======
+>>>>>>> 6b753fd6ca1c4f2e5ec6db2f2f3a2ed5a5ef7e12
     });
-  });
-};
+  };

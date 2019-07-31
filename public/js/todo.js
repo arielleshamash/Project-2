@@ -14,9 +14,6 @@ var LINE_THROUGH = 'lineThrough';
 let LIST = [],
     id = 0;
 
-
-
-
 //show today date
 const options = {
     weekday: 'long',
