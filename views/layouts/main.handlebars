@@ -32,8 +32,8 @@
             $('#today-date').append(date.month + ' - ' + date.day + ' - ' + date.year);
             // Change date on click
             $('#calendar-main').on('click', function() {
-                $('#today-date').html('');
-                $('#today-date').append(date.month + ' - ' + date.day + ' - ' + date.year);
+                //$('#today-date').html('');
+                $('#date').html(date.month + ' - ' + date.day + ' - ' + date.year);
             });
         });
 
