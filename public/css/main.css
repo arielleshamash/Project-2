@@ -5,7 +5,8 @@ body {
 	background: url(../imgs/art-background-blue-370799.jpg);
 	background-attachment: fixed;
 	background-size: cover;
-	background-repeat: no-repeat;
+    background-repeat: no-repeat;
+
 	
 
   }
@@ -44,7 +45,8 @@ body {
 	padding: 0;
 	margin: 0;
 	-webkit-font-smoothing: antialiased;
-	font-family: sans-serif;
+    font-family: sans-serif;
+
 }
 
 
@@ -131,10 +133,10 @@ body {
 }
 
 .header-todo{
-    background-image: linear-gradient(rgb(0,0,0,0.01),rgb(0,0,0,0.4)),url(../imgs/Plan-It.png);
+    background-image: linear-gradient(rgb(0,0,0,0.01),rgb(0,0,0,0.4)),url(../imgs/calendarpic.jpg);
     height: 250px;
     background-position: center;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     border-radius: 10px;
     border-bottom-left-radius: 0;
