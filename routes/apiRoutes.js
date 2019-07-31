@@ -3,9 +3,6 @@ var moment = require('moment');
 
 module.exports = function (app) {
 
-  //remove event
-  app.post("/api/")
-
   // -------------------------------Create a new event------------------------------
   app.post("/api/new-todo", function (req, res) {
     console.log(req.body);
@@ -46,7 +43,7 @@ module.exports = function (app) {
   // });
 
   // ---------------------------Delete an event-------------------------------------
-  app.post("/api/delete-event", function (req, res) {
+  app.delete("/api/delete-event", function (req, res) {
     console.log(req.body)
     db.Event.destroy(
       {
