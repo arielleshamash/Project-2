@@ -1,7 +1,11 @@
 {
   "development": {
     "username": "root",
+<<<<<<< HEAD
     "password": "NotAnother1",
+=======
+    "password": "Munchkin93",
+>>>>>>> A-branch
     "database": "planitDB",
     "host": "127.0.0.1",
     "dialect": "mysql"
@@ -9,7 +13,11 @@
   "test": {
     "username": "root",
     "password": "NotAnother1",
+<<<<<<< HEAD
     "database": "planitDB",
+=======
+    "database": "database_test",
+>>>>>>> A-branch
     "host": "127.0.0.1",
     "dialect": "mysql",
     "logging": false
