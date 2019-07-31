@@ -7,11 +7,6 @@ module.exports = function(app) {
 //remove event
 app.post("/api/")
 
-// add event, cross off, delete
-
-// create fake post to know what is coming
-
-
   // Create a new event
 
   app.post("/api/new-todo", function(req, res) {
@@ -28,6 +23,7 @@ app.post("/api/")
     });
   });
 
+  // still needs work!!!!!
   app.get("api/todo", function(req, res){
     db.Event.selectAll({where:{
       day: 30
