@@ -88,8 +88,8 @@ module.exports = function (app) {
       });
     });
 
-    //get data by exact event
-    app.get("/event/:id", function (req, res) {
+    //get data by exact Event
+    app.get("/Event/:id", function (req, res) {
       var id = req.params[0];
       db.Event.findByPK(id).then(function (listing) {
         res.render("home", {

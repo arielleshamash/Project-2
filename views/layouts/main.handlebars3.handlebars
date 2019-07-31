@@ -5,8 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Plan It!</title>
-    
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- Compiled and minified JavaScript -->
@@ -26,15 +25,22 @@
 
 
     <script>
-        $(document).ready(function() {            
+        $(document).ready(function() {
+            var monthData;
+
+        $.get("/currentMonth", function(monthEvents) {
+		    //console.log("MONEYYYYYYYYYYYYYYYYYY" + monthEvents);   
+            monthData = monthEvents;
+	    });
+            
             // Shows the calendar
-            var date = calendar('#calendar-main');
+            var date = calendar('#calendar-main', monthData);
             // Append current date
             $('#today-date').append(date.month + ' - ' + date.day + ' - ' + date.year);
             // Change date on click
             $('#calendar-main').on('click', function() {
-                //$('#today-date').html('');
-                $('#date').html(date.month + ' - ' + date.day + ' - ' + date.year);
+                $('#today-date').html('');
+                $('#today-date').append(date.month + ' - ' + date.day + ' - ' + date.year);
             });
         });
 
@@ -55,7 +61,7 @@
     {{{body}}}
 
     <script src="/js/todo.js"></script>
-    <script src="/js/index.js"></script>
+
 </body>
 
 </html>
