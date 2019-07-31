@@ -31,6 +31,7 @@ module.exports = function (app) {
       })
     });
 
+
     //get important data
     app.get("/important-list/:month", function (req, res) {
       db.Event.findAll({
