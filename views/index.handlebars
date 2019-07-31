@@ -1,33 +1,103 @@
-<div id="home">
-  <div class="container">
+<header>
+  <nav>
+    <div class="nav-wrapper indigo darken-4">
+      <a href="#" class="brand-logo center">Plan It!</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="sass.html">Calendar</a></li>
+        <li><a href="badges.html">To Do</a></li>
+        <li><a href="collapsible.html">Log Out</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<main>
+
+  <div class="section">
     <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
+      <!--current month calendar-->
+      <div class="col s9">
+        <div class="card large transparent" id="cal-card">
+          <div class="card-content">
+            <!-- Show Calendar -->
+            <div class="container" id="calendar-main"></div>
+            <!-- Show Current Date -->
+            <!-- <center>
+                    <span class="date" id="today-date"></span>
+                  </center> -->
           </div>
-          <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
+        </div>
+      </div>
+
+      <!--To do list card-->
+      <div class="col s3">
+
+        <div class="container-todo">
+          <div class="header-todo">
+            <div class="clear">
+              <span id="title-todo">To-DO List APP</span>
+              <i class="fa fa-refresh" aria-hidden="true"></i>
+            </div>
+            <div class="profile">
+              <img src="/imgs/Plan-It.png">
+              <span class="notification-todo">1</span>
+            </div>
+            <div id="date"></div>
           </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
-        </form>
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
+          <div class="content-todo">
+            <ul id="list">
+            </ul>
+            <div class="add-item">
+              {{!-- to do list add event --}}
+              <i class="fa fa-plus-circle" id="add" aria-hidden="true"></i>
+              <input type="text" id="input" placeholder="Add a To-Do">
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+
+  <!--bottom container for monthly important dates-->
+  <div class="section">
+    <div class="row">
+      <div class="col s12">
+        <div class="card medium">
+          <div class="card-content">
+            <span class="card-title">What's Coming Up?</span>
+            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I
+              require little markup to use effectively.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+<footer class="page-footer center">
+  <div class="footer-copyright">
+    <div class="container">© 2019 Copyright The Clevengers</div>
+  </div>
+</footer>
+
+<script>
+
+  $("#add").on("click", function () {
+    var newEvent = {
+      eventName: $("#input").val(),
+      eventYear: $("#...").val(),
+      eventMonth: $("#...").val(),
+      eventDay: $("#...").val(),
+      eventFinished: $("#...").val(),
+      eventImportnant: $("#...").val(),
+    }
+  });
+
+  $.ajax({
+    method: "POST",
+    url: "/api/new-todo",
+    data: "payload"
+  }).then(function (data) {
+    console.log(data)
+  })
+</script>

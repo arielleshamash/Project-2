@@ -1,137 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Plan It!</title>
-  <script src="jquery-3.4.1.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Plan It!</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <!--Import Google Icon Font-->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!--Import materialize.css-->
-  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-  <!--Let browser know website is optimized for mobile-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://momentjs.com/downloads/moment.min.js"></script>
+    <script src="/public/js/calendar.js"></script>
+    <script src="/public/js/index.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            // Shows the calendar
+            var date = calendar('#calendar-main');
+            // Append current date
+            $('#today-date').append(date.month + ' - ' + date.day + ' - ' + date.year);
+            // Change date on click
+            $('#calendar-main').on('click', function() {
+                $('#today-date').html('');
+                $('#today-date').append(date.month + ' - ' + date.day + ' - ' + date.year);
+            });
+        });
+    </script>
+    
+    <link rel="stylesheet" type="text/css" href="/public/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="/public/css/calendar.css" />
+    <link rel="stylesheet" type="text/css" href="/public/css/calendar-style.css" />
 
 </head>
 
 <body>
     <!--top nav bar-->
     <header>
-      <nav>
-        <div class="nav-wrapper indigo darken-4">
-          <a href="#" class="brand-logo center">Plan It!</a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="sass.html">Calendar</a></li>
-            <li><a href="badges.html">To Do</a></li>
-            <li><a href="collapsible.html">Log Out</a></li>
-          </ul>
-        </div>
-      </nav>
+        <nav>
+            <div class="nav-wrapper indigo darken-4">
+                <a href="#" class="brand-logo center">Plan It!</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="sass.html">Calendar</a></li>
+                    <li><a href="badges.html">To Do</a></li>
+                    <li><a href="collapsible.html">Log Out</a></li>
+                </ul>
+            </div>
+        </nav>
     </header>
     <main>
-        
-      <div class="section">
-        <div class="row">
-          <!--current month calendar-->
-          <div class="col s9">
-            <div class="card large">
-              <div class="card-content">
-                <span class="card-title">Current Month Calendar</span>
-                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-              </div>
+
+        <div class="section">
+            <div class="row">
+
+                <!--current month calendar-->
+                <div class="col s9">
+                    <div class="card large transparent" id="cal-card">
+                        <div class="card-content">
+                            <!-- Show Calendar -->
+                            <div class="container" id="calendar-main"></div>
+                            <!-- Show Current Date -->
+                            <!-- <center>
+                    <span class="date" id="today-date"></span>
+                  </center> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!--To do list card-->
+                <div class="col s3">
+                    <div class="card large">
+                        <div class="card-content">
+                            <span class="card-title">To Do List</span>
+                            <!-- Show Current Date -->
+                            <center>
+                                <span class="date" id="today-date"></span>
+                            </center>
+                        </div>
+                        <div class="card-content">
+                            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-  
-          <!--To do list card-->
-          <div class="col s3">
-            <div class="card large">
-              <div class="card-content">
-                <span class="card-title">To Do List</span>
-              </div>
-              <div class="card-content">
-  
-                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
-  
-      
-      <!--bottom container for monthly important dates-->
-      <div class="section">
-        <div class="row">
-          <div class="col s12">
-            <div class="card medium">
-              <div class="card-content">
-                <span class="card-title">What's Coming Up?</span>
-                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-              </div>
+
+
+        <!--bottom container for monthly important dates-->
+        <div class="section">
+            <div class="row">
+                <div class="col s12">
+                    <div class="card medium">
+                        <div class="card-content">
+                            <span class="card-title">What's Coming Up?</span>
+                            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-      
+
     </main>
     <footer class="page-footer center">
-      <div class="footer-copyright">
-        <div class="container">© 2019 Copyright The Clevengers</div>
-      </div>
+        <div class="footer-copyright">
+            <div class="container">© 2019 Copyright The Clevengers</div>
+        </div>
     </footer>
-  
 
-      <style>
+
+    <style>
         body {
-          display: flex;
-          min-height: 100vh;
-          flex-direction: column;
-          background: url("css/images/pen.jpg");
-          background-attachment: fixed;
-          background-size: cover;
-          background-repeat: no-repeat;
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+            background: url("../public/imgs/astronomy-dark-design-924824.jpg");
+            background-attachment: fixed;
+            background-size: cover;
+            background-repeat: no-repeat;
         }
+
         main {
-          flex: 1 0 auto;
+            flex: 1 0 auto;
         }
+
         .page-footer {
-          background-color: #1a237e;
-        }
-        .parallax{
-          position:static;
-        }
-        .parallax-container {
-          min-height: 380px;
-          line-height: 0;
-          height: auto;
-          color: rgba(255,255,255,.9);
-        }
-        .parallax img { 
-          width: 100%; 
+            background-color: #1a237e;
         }
 
+        #cal-card {
+            border: none;
+            box-shadow: none;
+        }
 
-        
-      </style>
-  
-  
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript" src="materialize\js\jquery.3.2.1.min.js"> </script>
-  <script src="js/materialize.js"></script>
-  <script src="js/init.js"></script>
-  <script type="text/javascript" src="js/materialize.min.js"></script>
+        #calendar-main {
+            table-layout: fixed;
+            width: 100%;
+            padding: 0px;
 
-  <script>
-  $(document).ready(function(){
-  $('.parallax').parallax();
-  });
-  </script>
+        }
+    </style>
 
-  </body>
-</html>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="materialize\js\jquery.3.2.1.min.js"> </script>
+    <script src="js/materialize.js"></script>
+    <script src="js/init.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+
+</body></html>
