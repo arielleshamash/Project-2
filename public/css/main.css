@@ -293,6 +293,6 @@ input#input {
 .nav-logo {
     width: 65px;    
      border-radius: 100px;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+    
     margin-left: 30px;
 }

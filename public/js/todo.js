@@ -35,9 +35,9 @@ function addTODO(toDo, id, done, trash) {
     const item =
         `
                     <li class="item">
-                        <i class="fa ${DONE} co" job="complete" id="${id}"></i>
-                        <p class="text ${LINE}">${toDo}</p>
-                        <i class="fa fa-trash-o de" job="delete" id=""${id}"></i>
+                        <i class="fa ${DONE} co complete" job="complete" id="${id}"></i>
+                        <p id="item${id}" class="text ${LINE} itemText" >${toDo}</p>
+                        <i data-id="${id}" class="fa fa-trash-o de delete" job="delete"></i>
                     </li>
             `;
 
@@ -85,7 +85,7 @@ function completeTODO(element) {
 
 function removeTODO(element) {
     element.parentNode.parentNode.removeChild(element.parentNode);
-    LIST[element.id].trash = true;
+    LIST[0].id.trash = true;
 }
 
 
