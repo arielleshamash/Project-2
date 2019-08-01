@@ -23,7 +23,7 @@ function calendar(target) {
 		// Append skeleton / markup
 		function appendMarkup() {
 			// String to append
-			var str = '<table><caption><span class="prev">&lt;&lt;</span><span class="month"></span><span class="year"></span><span class="next">&gt;&gt;</span></caption><thead><tr></tr></thead><tbody></tbody></table>';
+			var str = '<table><caption><span class="prev">&lt;&lt;</span><span id="shownMonth" class="month"></span><span id="shownYears" class="year"></span><span class="next">&gt;&gt;</span></caption><thead><tr></tr></thead><tbody></tbody></table>';
 			// Append mockup
 			$(target).append(str);
 		}
@@ -50,9 +50,11 @@ function calendar(target) {
 	function dynamicContent(change, monthEvents, activeDay) {
 
 		//put days in order
-		orderedMonthEvents = [];
+		var orderedMonthEvents = new Array(32);
+		orderedMonthEvents.fill("");
 		for (var j = 0; j < monthEvents.length; j++) {
 			//put in the right day
+<<<<<<< HEAD
 <<<<<<< HEAD
 			console.log(monthEvents[j].event);
 =======
@@ -62,14 +64,14 @@ function calendar(target) {
 				if (monthEvents[j].event === undefined) {
 					orderedMonthEvents[monthEvents[j].day] = "";
 				} else {
+=======
+			//console.log(monthEvents[j].event);
+			if (orderedMonthEvents[monthEvents[j].day] === "") {
+>>>>>>> 974001cf12ff94e63c2449f66bcf33c94d9ba2f3
 				orderedMonthEvents[monthEvents[j].day] = monthEvents[j].event;
-				}
 			} else {
-				if (monthEvents[j].event === undefined) {
-					orderedMonthEvents[monthEvents[j].day] = "";
-				} else {
-				orderedMonthEvents[monthEvents[j].day] += ('/n'+ monthEvents[j.event]);
-				}
+				orderedMonthEvents[monthEvents[j].day] += "<br>";
+				orderedMonthEvents[monthEvents[j].day] +=  monthEvents[j].event;
 			}
 		}
 
@@ -230,16 +232,42 @@ function calendar(target) {
 
 	// Prev / Next buttons
 	$(target +' .prev').click(function() {
-		dynamicContent(-1);
+		//make current month into an int so sequilizie type is correct for query 
+		currentMonth = parseInt(currentMonth);
+		//minus 1 for previous month
+		currentMonth -= 1;
+		//if month is zero carry over year
+		if (currentMonth === 0) {
+			currentMonth += 12;
+			currentYear -= 1;
+		} console.log("month: " + currentMonth + "| year: " + currentYear);
+		// redo get command
+		$.get('/api/events/'+ currentYear +'/'+ currentMonth, function(monthEvents) {
+			dynamicContent(-1, monthEvents);
+		});
 	});
-
+	//next month copies previous but adds
 	$(target +' .next').click(function() {
-		dynamicContent(1);
+
+		currentMonth = parseInt(currentMonth);
+		currentMonth += 1;
+
+		if (currentMonth === 13) {
+			currentMonth -= 12;
+			currentYear += 1;
+		} console.log("month: " + currentMonth + "| year: " + currentYear);
+		
+		console.log(currentMonth);
+		$.get('/api/events/'+ currentYear +'/'+ currentMonth, function(monthEvents) {
+			dynamicContent(1, monthEvents);
+		});
 	});
 
 	$(target +' table').delegate('tbody td', 'click', function() {
 		day = $(this).text();
-		dynamicContent(null, day);
+		$.get('/api/events/'+ currentYear +'/'+ currentMonth, function(monthEvents) {
+			dynamicContent(0, monthEvents, day);
+		});
 	});
 
 	// Return active date for ex: ajax usage

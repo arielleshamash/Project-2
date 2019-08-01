@@ -1,5 +1,4 @@
 var db = require("../models/index.js");
-var moment = require('moment');
 
 module.exports = function (app) {
 
@@ -71,10 +70,6 @@ app.get("/api/events/:year/:month", function (req, res) {
       month: req.params.month
     }
   }).then(cMonth => {
-    // console.log("HELPPPP");
-    // for (var i = 0; i < cMonth.length; i++) {
-    //   console.log(cMonth[i].event);
-    // }
     res.json(cMonth);
   });
 });
