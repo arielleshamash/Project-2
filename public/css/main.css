@@ -83,6 +83,10 @@ nav .nav-title {
     margin-top: -30px;
 }
 
+.whats-coming-sec {
+  margin-top: -20px;
+}
+
 
 /* ================== CALENDAR START ================== */
 * {
@@ -119,12 +123,10 @@ caption {
 }
 
 
-
-
 .section {
    
     margin-top: 10px;
-    padding-bottom: 1rem;
+    
 }
 
 /* ================== TO-DO LIST START ================== */
