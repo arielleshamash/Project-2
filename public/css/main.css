@@ -1,89 +1,110 @@
 body {
-	display: flex;
-	min-height: 100vh;
-	flex-direction: column;
-	background: url(../imgs/art-background-blue-370799.jpg);
-	background-attachment: fixed;
-	background-size: cover;
-	background-repeat: no-repeat;
-	
-
-  }
-  main {
-	flex: 1 0 auto;
-  }
-  .page-footer {
-	background-color: #1a237e;
-  }
-
-  
-  .card.large .card-content {
-	  overflow: visible;
-  }
-
-
-
-  #cal-card {
-	border: none;
-	box-shadow: none;
-  }
-
-  #calendar-main {
-	table-layout: fixed;
-	width: 100%;
-	padding: 0px;
-	
-  }
-
-.list-group-item {
-  line-height: 2.5;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background: url(../imgs/art-background-blue-370799.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    width: 960px;
 }
 
-/* CALENDAR STYLING */
-* {
-	padding: 0;
-	margin: 0;
-	-webkit-font-smoothing: antialiased;
-	font-family: sans-serif;
+h1{
+    font-size: 1.618em;
 }
 
-
-*, *:before, *:after {
-    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-    box-sizing: border-box;         /* Opera/IE 8+ */
+main {
+    flex: 1 0 auto;
 }
 
+.page-footer {
+    background-color: #1a237e;
+}
 
+.card.large .card-content {
+    overflow: visible;
+}
+
+#cal-card {
+    border: none;
+    box-shadow: none;
+}
 
 #calendar-main {
-	margin: 0 auto;
-	size: 100%;
+    table-layout: fixed;
+    width: 100%;
+    padding: 0px;
+
+}
+
+.list-group-item {
+    line-height: 2.5;
+}
+
+
+.row {
+    margin-bottom: 0px;
+}
+
+.card .card-content {
+    padding: 0px;
+    border-radius: 0 0 2px 2px;
+}
+
+.card.medium {
+    padding: 40px;
+}
+
+
+.card {
+    margin: 0rem 0 0rem 0;
+}
+
+.section{
+    padding-bottom: 0rem;
+}
+
+.row {
+    margin-bottom: 20px;
+}
+
+/* ================== CALENDAR START ================== */
+* {
+    padding: 0;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    font-family: sans-serif;
+}
+
+
+*,
+*:before,
+*:after {
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+    box-sizing: border-box;
+    /* Opera/IE 8+ */
+}
+
+#calendar-main {
+    margin: 0 auto;
+    size: 100%;
 }
 
 #today-date {
-	color: blue;
+    color: blue;
 }
 
-/* END OF CALENDAR */
 
 
 
-/* TO DO LIST */
 
-/* 
+/* ================== TO-DO LIST START ================== */
 
-/* body{
-    background-image: url(https://images.unsplash.com/photo-1484950763426-56b5bf172dbb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1080&q=100);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-} */
-
-
-.container-todo{
-    
-    width: 325px;
+.container-todo {
     padding: 2px;
     background: #eee;
     border-radius: 10px;
@@ -92,7 +113,7 @@ body {
     box-shadow: 0 25px 50px -12px rgba(255, 0, 0, 0.2);
 }
 
-.profile{
+.profile {
     width: 100px;
     position: absolute;
     top: 50%;
@@ -100,7 +121,7 @@ body {
     transform: translate(-50%, -50%);
 }
 
-#title-todo{
+#title-todo {
     text-align: center;
     font-size: 18px;
     width: 100%;
@@ -111,7 +132,7 @@ body {
     font-weight: 500;
 }
 
-.notification-todo{
+.notification-todo {
     background: #3CB46E;
     width: 25px;
     text-align: center;
@@ -123,15 +144,14 @@ body {
     z-index: 99999;
 }
 
-.profile img{
+.profile img {
     width: 100%;
     border-radius: 100px;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
     position: relative;
 }
 
-.header-todo{
-    background-image: linear-gradient(rgb(0,0,0,0.01),rgb(0,0,0,0.4)),url(../imgs/Plan-It.png);
+.header-todo {
     height: 250px;
     background-position: center;
     background-size: contain;
@@ -142,9 +162,10 @@ body {
     padding: 20px;
     border-bottom: 2px solid #ccc;
     position: relative;
+    background-color: #267799;
 }
 
-.clear{
+.clear {
     box-sizing: border-box;
     padding: 0 10px;
     font-size: 24px;
@@ -154,75 +175,75 @@ body {
     text-align: right;
 }
 
-#date{
-    
-    font-size: 21px;
+#date {
+
+    font-size: 1em;
     color: #fff;
     text-align: center;
-    width: 100%; 
+    width: 100%;
     font-weight: bold;
 }
 
-.content-todo{
+.content-todo {
     background: #fff;
-    min-height: 340px;
     height: 100%;
 }
 
-#list{
+#list {
     list-style-type: none;
-    min-height: 260px;
+    min-height: 150px;
     height: 90%;
     border-bottom: 2px solid blue;
 }
 
-.item{
+.item {
     width: 100%;
     padding: 8px;
     background: #eee;
     box-sizing: border-box;
 }
 
-.fa{
+.fa {
     cursor: pointer;
     transition: .1s linear;
 }
 
-.fa:hover{
-   transform: scale(1.2);
+.fa:hover {
+    transform: scale(1.2);
 }
 
-.item .fa, .item p{
+.item .fa,
+.item p {
     display: inline-block;
     font-size: 21px;
 }
 
-.item p{
+.item p {
     font-size: 16px;
     margin: 0 auto;
     margin: 0 0 0 20px
 }
 
-.de{
+.de {
     float: right;
 }
 
-.co{
+.co {
     float: left;
 }
 
-.add-item{
+.add-item {
     min-height: 40px;
     height: 100%;
     border-bottom-left-radius: 2px;
     border-bottom-right-radius: 2px;
     padding: 8px;
-    color:blue;
-    background:#eee;
+    color: blue;
+    background: #eee;
 
 }
 
-.add-item .fa{
+.add-item .fa {
     display: inline-block;
     font-size: 34px;
     margin-right: 10px;
@@ -237,24 +258,23 @@ input[type=text] {
     border: none;
     height: 40px;
     font-size: 18px;
-    background:#eee;
+    background: #eee;
     padding: 10px;
 }
 
-input[type=text]::placeholder{
+input[type=text]::placeholder {
     color: blue;
 }
 
-.fa-check-circle{
-    color:green;
+.fa-check-circle {
+    color: green;
 }
 
-.lineThrough{
+.lineThrough {
     text-decoration: line-through;
     color: #ccc;
 }
 
-
 input#input {
-    width: 85%;
+    width: 80%;
 }
