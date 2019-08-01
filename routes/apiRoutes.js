@@ -13,10 +13,7 @@ module.exports = function (app) {
          month: req.params.month
       }
     }).then(cMonth => {
-      // console.log("HELPPPP");
-      // for (var i = 0; i < cMonth.length; i++) {
-      //   console.log(cMonth[i].event);
-      // }
+      //send calendar events back
       res.json(cMonth);
       });
   });

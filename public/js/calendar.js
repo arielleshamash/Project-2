@@ -54,11 +54,12 @@ function calendar(target) {
 		orderedMonthEvents.fill("");
 		for (var j = 0; j < monthEvents.length; j++) {
 			//put in the right day
-			console.log(monthEvents[j].event);
+			//console.log(monthEvents[j].event);
 			if (orderedMonthEvents[monthEvents[j].day] === "") {
 				orderedMonthEvents[monthEvents[j].day] = monthEvents[j].event;
 			} else {
-				orderedMonthEvents[monthEvents[j].day] += monthEvents[j].event;
+				orderedMonthEvents[monthEvents[j].day] += "<br>";
+				orderedMonthEvents[monthEvents[j].day] +=  monthEvents[j].event;
 			}
 		}
 
@@ -246,7 +247,9 @@ function calendar(target) {
 
 	$(target +' table').delegate('tbody td', 'click', function() {
 		day = $(this).text();
-		dynamicContent(null, day);
+		$.get('/api/events/'+ currentYear +'/'+ currentMonth, function(monthEvents) {
+			dynamicContent(0, monthEvents, day);
+		});
 	});
 
 	// Return active date for ex: ajax usage
