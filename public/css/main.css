@@ -73,8 +73,16 @@ main {
 }
 
 .row {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
+
+nav .nav-title {
+    display: inline-block;
+    font-size: 2.618em;
+    padding: 20px 0;
+    margin-top: -30px;
+}
+
 
 /* ================== CALENDAR START ================== */
 * {
@@ -113,6 +121,12 @@ caption {
 
 
 
+.section {
+   
+    margin-top: 10px;
+    padding-bottom: 1rem;
+}
+
 /* ================== TO-DO LIST START ================== */
 
 .container-todo {
@@ -141,6 +155,7 @@ caption {
     transform: translate(-50%, -50%);
     position: absolute;
     font-weight: 500;
+    padding-top: 156px;
 }
 
 .notification-todo {
@@ -187,7 +202,6 @@ caption {
 }
 
 #date {
-
     font-size: 1em;
     color: #fff;
     text-align: center;
@@ -287,12 +301,30 @@ input[type=text]::placeholder {
 }
 
 input#input {
-    width: 80%;
+    width: 95%;
 }
 
 .nav-logo {
-    width: 65px;    
-     border-radius: 100px;
-    
-    margin-left: 30px;
+    width: 100%;
+    border-radius: 100px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+    position: relative;
 }
+
+.logo-nav {
+    width: 100%;
+    border-radius: 100px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+    position: relative;
+}
+
+
+
+img {
+    border-style: none;
+    width: 10%;
+    border-radius: 100px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+    position: relative;
+}
+
