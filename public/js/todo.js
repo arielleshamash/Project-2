@@ -45,15 +45,22 @@ function addTODO(toDo, id, done, trash) {
 }
 
 
+// Target by ID, on click event and function in to list 
+
+/* $("add").on("click", function () {
+
+    
+}) */
+
 // add item to the list when the user enters enter
 document.addEventListener('keyup', function (event) {
     if (event.keyCode == 13) {
         var toDo = input.value;
         if (toDo) {
             addTODO(toDo, id, false, false);
-            LIST.push({
+            LIST.push({ 
                 name: toDo,
-                id: id,
+                id: id, 
                 done: false,
                 trash: false
             });
