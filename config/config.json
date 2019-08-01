@@ -1,22 +1,14 @@
 {
   "development": {
     "username": "root",
-<<<<<<< HEAD
-    "password": "NotAnother1",
-=======
     "password": "YtvVP4QY6MkFwx4",
->>>>>>> mconour
     "database": "planitDB",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-<<<<<<< HEAD
-    "password": "NotAnother1",
-=======
     "password": "YtvVP4QY6MkFwx4",
->>>>>>> mconour
     "database": "planitDB",
     "host": "127.0.0.1",
     "dialect": "mysql",
