@@ -18,13 +18,9 @@
     "express-handlebars": "^3.1.0",
     "moment": "^2.24.0",
     "mysql2": "^1.6.5",
-<<<<<<< HEAD
     "path": "^0.12.7",
-    "sequelize": "^5.8.6"
-=======
     "sequelize": "^5.8.6",
     "tedious": "^6.2.0"
->>>>>>> 6b753fd6ca1c4f2e5ec6db2f2f3a2ed5a5ef7e12
   },
   "devDependencies": {
     "chai": "^4.2.0",
