@@ -1,32 +1,5 @@
 
 
-<<<<<<< HEAD
-module.exports = function(sequelize, DataTypes) {
-  var Event = sequelize.define("Event", {
-    event: DataTypes.STRING,
-    day: DataTypes.INTEGER,
-    month: DataTypes.INTEGER,
-    finished: DataTypes.BOOLEAN,
-    important: DataTypes.BOOLEAN,
-    year: DataTypes.INTEGER,
-  });
-  return Event;
-};
-/*
-module.exports = (sequelize, DataTypes) => {
-  class Event extends sequelize.Model { }
-  Event.init({
-    event: DataTypes.STRING,
-    day: DataTypes.INTEGER,
-    month: DataTypes.INTEGER,
-    finished: DataTypes.BOOLEAN,
-    important: DataTypes.BOOLEAN,
-    year: DataTypes.INTEGER
-  }, { sequelize });
-  return Event;
-}
-*/
-=======
 module.exports = function (sequelize, DataTypes) {
   var Event = sequelize.define("Event", {
     event:
@@ -59,4 +32,3 @@ module.exports = function (sequelize, DataTypes) {
   });
   return Event;
 };
->>>>>>> c1f45740dc02f5c122a05f8e0539669ce43b31d7
