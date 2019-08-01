@@ -207,6 +207,8 @@ function calendar(target) {
 	// Init the calender && get returned data from function
 	//data holder for month events
 
+	// console.log(currentMonth + "  GRRRRRRRRRRRRRRRRRRRRRO " + currentYear);
+
 	$.get('/api/events/'+ currentYear +'/'+ currentMonth, function(monthEvents) {
 		
 		dynamicContent(0, monthEvents);
