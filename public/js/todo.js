@@ -36,7 +36,7 @@ function addTODO(toDo, id, done, trash) {
         `
                     <li class="item">
                         <i class="fa ${DONE} co complete" job="complete" id="${id}"></i>
-                        <p data-id="itemTxt" class="text ${LINE} itemText" >${toDo}</p>
+                        <p class="text ${LINE} itemText" >${toDo}</p>
                         <i data-id="${id}" class="fa fa-trash-o de delete" job="delete"></i>
                     </li>
             `;
