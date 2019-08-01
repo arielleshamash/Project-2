@@ -50,23 +50,15 @@ function calendar(target) {
 	function dynamicContent(change, monthEvents, activeDay) {
 
 		//put days in order
-		var orderedMonthEvents = new Array(31);
+		var orderedMonthEvents = new Array(32);
 		orderedMonthEvents.fill("");
 		for (var j = 0; j < monthEvents.length; j++) {
 			//put in the right day
 			console.log(monthEvents[j].event);
-			if (orderedMonthEvents[monthEvents[j].day] === undefined) {
-				if (monthEvents[j].event === undefined) {
-					orderedMonthEvents[monthEvents[j].day] = "";
-				} else {
+			if (orderedMonthEvents[monthEvents[j].day] === "") {
 				orderedMonthEvents[monthEvents[j].day] = monthEvents[j].event;
-				}
 			} else {
-				if (monthEvents[j].event === undefined) {
-					orderedMonthEvents[monthEvents[j].day] = "";
-				} else {
-				orderedMonthEvents[monthEvents[j].day] += ('/n'+ monthEvents[j.event]);
-				}
+				orderedMonthEvents[monthEvents[j].day] += monthEvents[j].event;
 			}
 		}
 
