@@ -36,7 +36,7 @@ function addTODO(toDo, id, done, trash) {
         `
                     <li class="item">
                         <i class="fa ${DONE} co complete" job="complete" id="${id}"></i>
-                        <p id="item${id}" class="text ${LINE} itemText" >${toDo}</p>
+                        <p class="text ${LINE} itemText" >${toDo}</p>
                         <i data-id="${id}" class="fa fa-trash-o de delete" job="delete"></i>
                     </li>
             `;
@@ -46,8 +46,8 @@ function addTODO(toDo, id, done, trash) {
 
 
 // add item to the list when the user enters enter
-document.addEventListener('keyup', function (event) {
-    if (event.keyCode == 13) {
+document.getElementById('add').addEventListener('click', function (event) {
+    // if (event.keyCode == 13) {
         var toDo = input.value;
         if (toDo) {
             addTODO(toDo, id, false, false);
@@ -61,7 +61,7 @@ document.addEventListener('keyup', function (event) {
         }
         input.value = '';
 
-    }
+    // }
 });
 
 

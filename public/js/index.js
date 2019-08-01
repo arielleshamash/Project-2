@@ -28,28 +28,28 @@ $(document).ready(function(){
 
 // delete function
 
-    $(document).on("click", '.delete', function(){
-        console.log($(`#item${id}`).data('val'))
-        var dateString= $("#date").text()
-        var dateValues = dateString.split(" - ")
+    // $(document).on("click", '.delete', function(){
+    //     console.log(arguments[0])   
+    //     var dateString= $(".itemText").length()
+    //     var dateValues = dateString.split(" - ")
 
-        var deleteEvent = {
-            eventName: $(`#item${id}`).text(),
-            eventMonth: dateValues[0],
-            eventDay: dateValues[1],
-            eventYear: dateValues[2]
-        }
+    //     var deleteEvent = {
+    //         eventName: $(`#item${id}`).text(),
+    //         eventMonth: dateValues[0],
+    //         eventDay: dateValues[1],
+    //         eventYear: dateValues[2]
+    //     }
 
-        console.log(deleteEvent);
+    //     // console.log(deleteEvent);
 
-        $.ajax({
-            method: "POST",
-            url: "/api/delete-event",
-            data: deleteEvent
-        }).then(function (data) {
-            console.log("deleting "+data)
-        });
-    })
+    //     $.ajax({
+    //         method: "POST",
+    //         url: "/api/delete-event",
+    //         data: deleteEvent
+    //     }).then(function (data) {
+    //         console.log("deleting "+data)
+    //     });
+    // })
 
 
 
