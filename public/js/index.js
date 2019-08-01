@@ -2,7 +2,7 @@ $(document).ready(function(){
 
     console.log("running")
 
-    $("#add").on("click", function () {
+    $("#add").unbind("click").click(function () {
 
         var dateString= $("#date").html()
         var dateValues = dateString.split(" - ")
@@ -15,7 +15,7 @@ $(document).ready(function(){
             // eventFinished: $("#...").val(),
             // eventImportnant: $("#...").val()
         }
-        console.log("this is "+ JSON.stringify(newEvent));
+        // console.log("this is "+ JSON.stringify(newEvent));
         $.ajax({
             method: "POST",
             url: "/api/new-todo",
@@ -28,13 +28,14 @@ $(document).ready(function(){
 
 // delete function
 
-    $(".delete").on("click", function(){
-        $(this).attr("data-id");
-        var dateString= $("#date").html()
+    $(document).on("click", '.delete', function(){
+        console.log("clicked")
+        console.log($(`#item${id}`).html())
+        var dateString= $("#date").text()
         var dateValues = dateString.split(" - ")
 
         var deleteEvent = {
-            eventName: $('#itemText').html(),
+            eventName: $(`#item${id}`).text(),
             eventMonth: dateValues[0],
             eventDay: dateValues[1],
             eventYear: dateValues[2]

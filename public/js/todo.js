@@ -36,7 +36,7 @@ function addTODO(toDo, id, done, trash) {
         `
                     <li class="item">
                         <i class="fa ${DONE} co complete" job="complete" id="${id}"></i>
-                        <p id="itemText" class="text ${LINE}">${toDo}</p>
+                        <p id="item${id}" class="text ${LINE} itemText" >${toDo}</p>
                         <i data-id="${id}" class="fa fa-trash-o de delete" job="delete"></i>
                     </li>
             `;
@@ -78,7 +78,7 @@ function completeTODO(element) {
 
 function removeTODO(element) {
     element.parentNode.parentNode.removeChild(element.parentNode);
-    LIST[element.id].trash = true;
+    LIST[0].id.trash = true;
 }
 
 
