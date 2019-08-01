@@ -29,8 +29,7 @@ $(document).ready(function(){
 // delete function
 
     $(document).on("click", '.delete', function(){
-        console.log("clicked")
-        console.log($(`#item${id}`).html())
+        console.log($(`#item${id}`).data('val'))
         var dateString= $("#date").text()
         var dateValues = dateString.split(" - ")
 
