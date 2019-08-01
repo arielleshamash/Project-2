@@ -8,7 +8,11 @@
   },
   "test": {
     "username": "root",
+<<<<<<< HEAD
     "password": "NotAnother1",
+=======
+    "password": "YOUR_PASSWORD_HERE",
+>>>>>>> c1f45740dc02f5c122a05f8e0539669ce43b31d7
     "database": "planitDB",
     "host": "127.0.0.1",
     "dialect": "mysql",
