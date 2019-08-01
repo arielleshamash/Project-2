@@ -60,7 +60,8 @@ body {
 
 #calendar-main {
 	margin: 0 auto;
-	size: 100%;
+    size: 100%;
+    
 }
 
 #today-date {
@@ -85,7 +86,7 @@ body {
 
 .container-todo{
     
-    width: 325px;
+    width: 325px inherit;
     padding: 2px;
     background: #eee;
     border-radius: 10px;

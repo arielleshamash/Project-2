@@ -20,7 +20,7 @@ table th {
 table td {
 	cursor: pointer;
 	width: 14.3%;
-	padding: 2.5% 0;
+	padding: 2.5%; 
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
