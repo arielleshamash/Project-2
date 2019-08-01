@@ -9,6 +9,7 @@ function calendar(target) {
 	var storedDay;
 	var storedMonth;
 	var storedYear;
+	var monthDB;
 
 	// Define date object for ex: ajax usage.
 	var date = {
@@ -48,6 +49,7 @@ function calendar(target) {
 
 	// Will execute on init & prev + next buttons.
 	function dynamicContent(change, monthEvents, activeDay) {
+		monthDB = monthEvents;
 
 		//put days in order
 		var orderedMonthEvents = new Array(32);
@@ -122,12 +124,12 @@ function calendar(target) {
 			for (i = push; i <= daysInMonth; i++) {
 				x++;
 				if (x === 1) {
-					appendStr += '<tr><td id='+ i + '>'+ i + monthInfo[i] +'</td>';
+					appendStr += '<tr><td>' + i + ' '  + monthInfo[i] + '</td>';
 				} else if(x === 7) {
-					appendStr += '<td id='+ i + '>'+ i + monthInfo[i] + '</td></tr>';
+					appendStr += '<td>' + i + ' ' +  monthInfo[i] + '</td></tr>';
 					x = 0;
 				} else {
-					appendStr += '<td id='+ i + '>'+ i + monthInfo[i] +'</td>';
+					appendStr += '<td>' + i + ' ' + monthInfo[i] + '</td>';
 				}
 			}
 			// Finish the week with blank days.
@@ -247,11 +249,12 @@ function calendar(target) {
 		});
 	});
 
+	//for choosing the to-do date to display when clicking on a date
 	$(target +' table').delegate('tbody td', 'click', function() {
-		day = $(this).text();
-		$.get('/api/events/'+ currentYear +'/'+ currentMonth, function(monthEvents) {
-			dynamicContent(0, monthEvents, day);
-		});
+		wholeDay = $(this).text();
+		day = wholeDay.substr(0, wholeDay.indexOf(' '));
+
+		dynamicContent(0, monthDB, day);
 	});
 
 	// Return active date for ex: ajax usage
