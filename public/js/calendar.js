@@ -53,7 +53,11 @@ function calendar(target) {
 		orderedMonthEvents = [];
 		for (var j = 0; j < monthEvents.length; j++) {
 			//put in the right day
+<<<<<<< HEAD
 			console.log(monthEvents[j].event);
+=======
+			// console.log(monthEvents[j].event);
+>>>>>>> c1f45740dc02f5c122a05f8e0539669ce43b31d7
 			if (orderedMonthEvents[monthEvents[j].day] === undefined) {
 				if (monthEvents[j].event === undefined) {
 					orderedMonthEvents[monthEvents[j].day] = "";
@@ -213,7 +217,11 @@ function calendar(target) {
 	// Init the calender && get returned data from function
 	//data holder for month events
 
+<<<<<<< HEAD
 	console.log(currentMonth + "  GRRRRRRRRRRRRRRRRRRRRRO " + currentYear);
+=======
+	// console.log(currentMonth + "  GRRRRRRRRRRRRRRRRRRRRRO " + currentYear);
+>>>>>>> c1f45740dc02f5c122a05f8e0539669ce43b31d7
 
 	$.get('/api/events/'+ currentYear +'/'+ currentMonth, function(monthEvents) {
 		
