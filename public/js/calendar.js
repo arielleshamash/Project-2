@@ -32,10 +32,10 @@ function calendar(target) {
 		function tableHead() {
 			// Define variable
 			var th;
-			// Loop through mon-sun.
-			for (i = 1; i <= 7; i++) {
+			// Loop through sun-saturday.
+			for (i = 0; i <= 6; i++) {
 				// Append <th> to the variable
-				th += '<th>'+moment().isoWeekday(i).format('ddd')+'</th>';
+				th += '<th>'+moment().day(i).format('ddd')+'</th>';
 			}
 			// Append the string to thead tr
 			$(target +' table thead tr').append(th);
