@@ -34,9 +34,9 @@ function calendar(target) {
 			// Define variable
 			var th;
 			// Loop through mon-sun.
-			for (i = 1; i <= 7; i++) {
+			for (i = 0; i <= 6; i++) {
 				// Append <th> to the variable
-				th += '<th>'+moment().isoWeekday(i).format('ddd')+'</th>';
+				th += '<th>'+moment().day(i).format('ddd')+'</th>';
 			}
 			// Append the string to thead tr
 			$(target +' table thead tr').append(th);
@@ -204,6 +204,22 @@ function calendar(target) {
 		}
 	}
 
+		//print todolist
+		function printToDoList(day, monthEvents) {
+			//look through month events to find todo list
+			for(var i = 0; i < monthEvents.length; i++) {
+				
+
+				
+			//console.log(day + " ===? " + monthEvents[i].day);
+			//if events day equals day clicked on print it
+				if(day == monthEvents[i].day) {
+					console.log(monthEvents[i].event);
+					$('#list').html(monthEvents[i].event); 
+				}
+			}
+		}
+
 	// Init static content (ex: lang & table-head).
 	staticContent();
 	// Init the calender && get returned data from function
@@ -254,8 +270,11 @@ function calendar(target) {
 		wholeDay = $(this).text();
 		day = wholeDay.substr(0, wholeDay.indexOf(' '));
 
+		printToDoList(day, monthDB);
 		dynamicContent(0, monthDB, day);
 	});
+
+
 
 	// Return active date for ex: ajax usage
 	return date;

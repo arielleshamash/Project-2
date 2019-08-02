@@ -36,7 +36,7 @@ function addTODO(toDo, id, done, trash) {
         `
                     <li class="item">
                         <i class="fa ${DONE} co complete" job="complete" id="${id}"></i>
-                        <p id="pId" class="text ${LINE} itemText" >${toDo}</p>
+                        <p id="item${id}" class="text ${LINE} itemText" >${toDo}</p>
                         <i data-id="${id}" class="fa fa-trash-o de delete" job="delete"></i>
                     </li>
             `;
@@ -46,8 +46,8 @@ function addTODO(toDo, id, done, trash) {
 
 
 // add item to the list when the user enters enter
-document.getElementById('add').addEventListener('click', function (event) {
-    // if (event.keyCode == 13) {
+document.addEventListener('keyup', function (event) {
+    if (event.keyCode == 13) {
         var toDo = input.value;
         if (toDo) {
             addTODO(toDo, id, false, false);
@@ -61,7 +61,7 @@ document.getElementById('add').addEventListener('click', function (event) {
         }
         input.value = '';
 
-    // }
+    }
 });
 
 
@@ -77,9 +77,6 @@ function completeTODO(element) {
 // remove todo
 
 function removeTODO(element) {
-    
-    
-    
     element.parentNode.parentNode.removeChild(element.parentNode);
     LIST[0].id.trash = true;
 }
@@ -88,40 +85,12 @@ function removeTODO(element) {
 list.addEventListener('click', function (event) {
     const element = event.target;
     const elementJob = element.attributes.job.value;
-    var titleElement = document.getElementById('pId');
-    console.log(titleElement);
-    // var titleChild = titleElement.getElementsByTagName('p');
-    
-    
-    // console.log(titleChild[0].innerhtml());
-    var dateString= $(".itemText").val();
-    var dateValues = dateString.split(" - ")
-    
-    var deleteEvent = {
-        // eventName: $(`#item${id}`).text(),
-        eventMonth: dateValues[0],
-        eventDay: dateValues[1],
-        eventYear: dateValues[2]
+
+    if (elementJob == 'complete') {
+        completeTODO(element);
+
+    } else if (elementJob == 'delete') {
+        removeTODO(element);
     }
-    
-    // console.log(deleteEvent);
-    
-    $.ajax({
-        method: "POST",
-        url: "/api/delete-event",
-        data: deleteEvent
-    }).then(function (data) {
-        console.log("deleting "+data)
-    }).then(function() {
-
-        if (elementJob == 'complete') {
-            completeTODO(element);
-    
-        } else if (elementJob == 'delete') {
-            removeTODO(element);
-        }
-    });
-    
-
 
 });
